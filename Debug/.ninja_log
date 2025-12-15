@@ -1,0 +1,13 @@
+# ninja log v5
+183	249	7874649617864253	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Exe/05-EEPROM-Demo.out	b51faaf1d3ac9539
+1	146	7874532497955928	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/motor.o	42babc4a646a571e
+2	233	7874488009588310	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/lcd.o	3138b1da68d20f35
+8	182	7874488009111968	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/keypad.o	44b23d783f0a8480
+12	300	7874488010263941	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/eeprom.o	df19b5ad49ca32dc
+188	324	7874488010439172	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/adc.o	fed84c890c7e65e4
+331	404	7874488011327364	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/potentiometer.o	7ae0698e1a72d3b1
+2	132	7874619275817282	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/dio.o	526aba2a9b8d4f9f
+366	480	7874488012055793	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/uart.o	c73140c895aa8a7e
+307	438	7874488011669260	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/systick.o	f3e36c135c043669
+2	176	7874649617130178	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/main.o	ad7f029578f6b2ca
+1	216	7874640876900893	D:/DeepLearning/IAR_PROJECTS/Embedded/EEPROM-Demo/Debug/Obj/Buzzer.o	2a91bca562ae10a9
