@@ -1,32 +1,32 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.10.1.308/W64 for ARM                  15/Dec/2025  03:22:41
+# IAR ELF Linker V9.10.1.308/W64 for ARM                  15/Dec/2025  22:23:06
 # Copyright 2007-2021 IAR Systems AB.
 #
 #    Output file  =
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Exe\05-EEPROM-Demo.out
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Exe\05-EEPROM-Demo.out
 #    Map file     =
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\List\05-EEPROM-Demo.map
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\List\05-EEPROM-Demo.map
 #    Command line =
 #        -f
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Exe\05-EEPROM-Demo.out.rsp
-#        (D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\adc.o
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\Buzzer.o
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\dio.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Exe\05-EEPROM-Demo.out.rsp
+#        (D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\MCAL\adc.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\HAL\Buzzer.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\MCAL\dio.o
 #        C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\ewarm\Exe\driverlib.a
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\eeprom.o
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\keypad.o
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\lcd.o
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\main.o
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\motor.o
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\potentiometer.o
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\systick.o
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj\uart.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\Application\ECU_main.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\MCAL\eeprom.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\HMI_ECU\HAL\keypad.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\HMI_ECU\HAL\lcd.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\HAL\motor.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\HMI_ECU\HAL\potentiometer.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\MCAL\systick.o
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\MCAL\uart.o
 #        --no_out_extension -o
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Exe\05-EEPROM-Demo.out
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Exe\05-EEPROM-Demo.out
 #        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
 #        --map
-#        D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\List\05-EEPROM-Demo.map
+#        D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\List\05-EEPROM-Demo.map
 #        --config "D:\programs\IAR Systems\Emdeded Workbench
 #        9.0_2\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
 #        C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\ewarm\Exe\driverlib.a
@@ -63,141 +63,41 @@ define block CSTACK with size = 4K, alignment = 8 { };
 define block HEAP with size = 8K, alignment = 8 { };
 "P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
           rw, block CSTACK, block HEAP };
-initialize by copy { rw };
 
-  Section            Kind         Address    Size  Object
-  -------            ----         -------    ----  ------
-"A0":                                        0x40
-  .intvec            ro code          0x0    0x40  vector_table_M.o [4]
-                                   - 0x40    0x40
+No sections matched the following patterns:
 
-"P1":                                      0x3aba
-  .text              ro code         0x40   0xf16  xprintffull_nomb.o [2]
-  .text              ro code        0xf56    0x3a  packbits_init_single.o [4]
-  .text              ro code        0xf90    0x16  strchr.o [4]
-  .text              ro code        0xfa6     0xa  xsprout.o [2]
-  .text              ro code        0xfb0    0x40  xfail_s.o [2]
-  .text              ro code        0xff0    0x36  strlen.o [4]
-  .text              ro code       0x1026     0x2  vectortrap_M.o [4]
-  .text              ro code       0x1028    0x58  memchr.o [4]
-  .text              ro code       0x1080    0x76  ABImemcpy_unaligned.o [4]
-  .text              ro code       0x10f8    0x70  frexp.o [3]
-  .text              ro code       0x1168    0x34  DblCmpLe.o [3]
-  .text              ro code       0x119c    0x34  DblCmpGe.o [3]
-  .text              ro code       0x11d0   0x13a  ldexp.o [3]
-  .text              ro code       0x130c    0x36  DblToS32.o [3]
-  .text              ro code       0x1344    0x22  S32ToDbl.o [3]
-  .text              ro code       0x1368   0x24e  DblAddSub.o [3]
-  .text              ro code       0x15b8   0x246  DblDiv.o [3]
-  .text              ro code       0x1800    0x22  DblToU32.o [3]
-  .text              ro code       0x1824    0x1c  U32ToDbl.o [3]
-  .text              ro code       0x1840   0x1aa  DblMul.o [3]
-  .text              ro code       0x19ec   0x230  I64DivMod.o [4]
-  .text              ro code       0x1c1c     0x6  abort.o [2]
-  .text              ro code       0x1c24     0x2  I64DivZer.o [4]
-  .text              ro code       0x1c28    0x14  exit.o [5]
-  .text              ro code       0x1c3c   0xe3c  main.o [1]
-  .text              ro code       0x2a78    0x60  systick.o [1]
-  .text              ro code       0x2ad8   0x1cc  lcd.o [1]
-  .text              ro code       0x2ca4   0x130  keypad.o [1]
-  .text              ro code       0x2dd4    0x5c  motor.o [1]
-  .text              ro code       0x2e30    0x12  potentiometer.o [1]
-  .text              ro code       0x2e44    0xca  Buzzer.o [1]
-  .text              ro code       0x2f10   0x4ec  dio.o [1]
-  .text              ro code       0x33fc    0x66  ABImemset.o [4]
-  .text              ro code       0x3464   0x24c  eeprom.o [1]
-  .text              ro code       0x36b0    0x40  sprintf.o [2]
-  .text              ro code       0x36f0   0x118  adc.o [1]
-  .text              ro code       0x3808    0x28  data_init.o [4]
-  .text              ro code       0x3830    0x22  fpinit_M.o [3]
-  .iar.init_table    const         0x3854    0x10  - Linker created -
-  .text              ro code       0x3864    0x1e  cmain.o [4]
-  .text              ro code       0x3882     0x4  low_level_init.o [2]
-  .text              ro code       0x3886     0x4  exit.o [2]
-  .text              ro code       0x388c     0xa  cexit.o [4]
-  .text              ro code       0x3898    0x1c  cstartup_M.o [4]
-  .rodata            const         0x38b4    0x14  main.o [1]
-  .rodata            const         0x38c8    0x14  main.o [1]
-  .rodata            const         0x38dc    0x14  main.o [1]
-  .rodata            const         0x38f0    0x14  main.o [1]
-  .rodata            const         0x3904    0x14  main.o [1]
-  .rodata            const         0x3918    0x10  keypad.o [1]
-  .rodata            const         0x3928    0x10  main.o [1]
-  .rodata            const         0x3938    0x10  main.o [1]
-  .rodata            const         0x3948    0x10  main.o [1]
-  .rodata            const         0x3958    0x10  main.o [1]
-  .rodata            const         0x3968    0x10  main.o [1]
-  .rodata            const         0x3978    0x10  main.o [1]
-  .rodata            const         0x3988    0x10  main.o [1]
-  .rodata            const         0x3998    0x10  main.o [1]
-  .rodata            const         0x39a8    0x10  main.o [1]
-  .rodata            const         0x39b8    0x10  main.o [1]
-  .rodata            const         0x39c8    0x10  main.o [1]
-  .rodata            const         0x39d8    0x10  main.o [1]
-  .rodata            const         0x39e8    0x10  main.o [1]
-  .rodata            const         0x39f8    0x10  main.o [1]
-  .rodata            const         0x3a08    0x10  main.o [1]
-  .rodata            const         0x3a18    0x10  main.o [1]
-  .rodata            const         0x3a28    0x10  main.o [1]
-  .rodata            const         0x3a38    0x10  main.o [1]
-  .rodata            const         0x3a48    0x10  main.o [1]
-  .rodata            const         0x3a58    0x10  main.o [1]
-  .rodata            const         0x3a68    0x10  main.o [1]
-  .rodata            const         0x3a78    0x10  main.o [1]
-  .rodata            const         0x3a88    0x10  main.o [1]
-  .rodata            const         0x3a98    0x10  main.o [1]
-  .rodata            const         0x3aa8     0xc  main.o [1]
-  .rodata            const         0x3ab4     0xc  main.o [1]
-  .rodata            const         0x3ac0     0xc  main.o [1]
-  .rodata            const         0x3acc     0xc  main.o [1]
-  .rodata            const         0x3ad8     0xc  main.o [1]
-  .rodata            const         0x3ae4     0x4  keypad.o [1]
-  .rodata            const         0x3ae8     0x4  keypad.o [1]
-  .rodata            const         0x3aec     0x4  keypad.o [1]
-  .rodata            const         0x3af0     0x4  keypad.o [1]
-  .rodata            const         0x3af4     0x0  packbits_init_single.o [4]
-  Initializer bytes  const         0x3af4     0x6  <for P2-1>
-                                 - 0x3afa  0x3aba
+  rw  in "P2"
 
-"P2", part 1 of 2:                           0x22
-  P2-1                        0x2000'0000    0x22  <Init block>
-    .bss             inited   0x2000'0000     0x8  main.o [1]
-    .bss             inited   0x2000'0008     0x8  main.o [1]
-    .bss             inited   0x2000'0010     0x8  main.o [1]
-    .bss             inited   0x2000'0018     0x4  xfail_s.o [2]
-    .data            inited   0x2000'001c     0x1  main.o [1]
-    .data            inited   0x2000'001d     0x1  main.o [1]
-    .bss             inited   0x2000'001e     0x1  main.o [1]
-    .bss             inited   0x2000'001f     0x1  main.o [1]
-    .bss             inited   0x2000'0020     0x1  main.o [1]
-    .bss             inited   0x2000'0021     0x1  systick.o [1]
-                            - 0x2000'0022    0x22
 
-"P2", part 2 of 2:                         0x1000
-  CSTACK                      0x2000'0028  0x1000  <Block>
-    CSTACK           uninit   0x2000'0028  0x1000  <Block tail>
-                            - 0x2000'1028  0x1000
+  Section   Kind         Address    Size  Object
+  -------   ----         -------    ----  ------
+"A0":                               0x40
+  .intvec   ro code          0x0    0x40  vector_table_M.o [7]
+                          - 0x40    0x40
+
+"P1":                               0x8c
+  .text     ro code         0x40    0x22  fpinit_M.o [6]
+  .text     ro code         0x62     0x2  vectortrap_M.o [7]
+  .text     ro code         0x64    0x1e  cmain.o [7]
+  .text     ro code         0x82     0x4  low_level_init.o [5]
+  .text     ro code         0x86     0x4  ECU_main.o [1]
+  .text     ro code         0x8a     0x4  exit.o [5]
+  .text     ro code         0x90     0xa  cexit.o [7]
+  .text     ro code         0x9c    0x14  exit.o [8]
+  .text     ro code         0xb0    0x1c  cstartup_M.o [7]
+                          - 0xcc    0x8c
+
+"P2":                             0x1000
+  CSTACK             0x2000'0000  0x1000  <Block>
+    CSTACK  uninit   0x2000'0000  0x1000  <Block tail>
+                   - 0x2000'1000  0x1000
 
 Unused ranges:
 
          From           To      Size
          ----           --      ----
-       0x3afa     0x3'ffff  0x3'c506
-  0x2000'0022  0x2000'0027       0x6
-  0x2000'1028  0x2000'7fff    0x6fd8
-
-
-*******************************************************************************
-*** INIT TABLE
-***
-
-          Address      Size
-          -------      ----
-Copy/packbits (__iar_packbits_init_single3)
-    1 source range, total size 0x6 (17% of destination):
-               0x3af4   0x6
-    1 destination range, total size 0x22:
-          0x2000'0000  0x22
+         0xcc     0x3'ffff  0x3'ff34
+  0x2000'1000  0x2000'7fff    0x7000
 
 
 
@@ -205,242 +105,103 @@ Copy/packbits (__iar_packbits_init_single3)
 *** MODULE SUMMARY
 ***
 
-    Module                  ro code  ro data  rw data
-    ------                  -------  -------  -------
+    Module            ro code  rw data
+    ------            -------  -------
 command line/config:
-    -------------------------------------------------
+    ----------------------------------
     Total:
 
-D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj: [1]
-    Buzzer.o                    202
-    adc.o                       280
-    dio.o                     1'260
-    eeprom.o                    588
-    keypad.o                    304       32
-    lcd.o                       460
-    main.o                    3'644      549       29
-    motor.o                      92
-    potentiometer.o              18
-    systick.o                    96        1        1
-    -------------------------------------------------
-    Total:                    6'944      582       30
+D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\Application: [1]
+    ECU_main.o              4
+    ----------------------------------
+    Total:                  4
 
-dl7M_tln.a: [2]
-    abort.o                       6
-    exit.o                        4
-    low_level_init.o              4
-    sprintf.o                    64
-    xfail_s.o                    64                 4
-    xprintffull_nomb.o        3'862
-    xsprout.o                    10
-    -------------------------------------------------
-    Total:                    4'014                 4
+D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\HAL: [2]
+    ----------------------------------
+    Total:
 
-m7M_tls.a: [3]
-    DblAddSub.o                 590
-    DblCmpGe.o                   52
-    DblCmpLe.o                   52
-    DblDiv.o                    582
-    DblMul.o                    426
-    DblToS32.o                   54
-    DblToU32.o                   34
-    S32ToDbl.o                   34
-    U32ToDbl.o                   28
-    fpinit_M.o                   34
-    frexp.o                     112
-    ldexp.o                     314
-    -------------------------------------------------
-    Total:                    2'312
+D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\MCAL: [3]
+    ----------------------------------
+    Total:
 
-rt7M_tl.a: [4]
-    ABImemcpy_unaligned.o       118
-    ABImemset.o                 102
-    I64DivMod.o                 560
-    I64DivZer.o                   2
-    cexit.o                      10
-    cmain.o                      30
-    cstartup_M.o                 28
-    data_init.o                  40
-    memchr.o                     88
-    packbits_init_single.o       58
-    strchr.o                     22
-    strlen.o                     54
-    vector_table_M.o             64
-    vectortrap_M.o                2
-    -------------------------------------------------
-    Total:                    1'178
+D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\HMI_ECU\HAL: [4]
+    ----------------------------------
+    Total:
 
-shb_l.a: [5]
-    exit.o                       20
-    -------------------------------------------------
-    Total:                       20
+dl7M_tln.a: [5]
+    exit.o                  4
+    low_level_init.o        4
+    ----------------------------------
+    Total:                  8
 
-    Gaps                         30        2
-    Linker created                        16    4'096
------------------------------------------------------
-    Grand Total:             14'498      600    4'130
+m7M_tls.a: [6]
+    fpinit_M.o             34
+    ----------------------------------
+    Total:                 34
+
+rt7M_tl.a: [7]
+    cexit.o                10
+    cmain.o                30
+    cstartup_M.o           28
+    vector_table_M.o       64
+    vectortrap_M.o          2
+    ----------------------------------
+    Total:                134
+
+shb_l.a: [8]
+    exit.o                 20
+    ----------------------------------
+    Total:                 20
+
+    Gaps                    4
+    Linker created               4'096
+--------------------------------------
+    Grand Total:          204    4'096
 
 
 *******************************************************************************
 *** ENTRY LIST
 ***
 
-Entry                       Address   Size  Type      Object
------                       -------   ----  ----      ------
-.iar.init_table$$Base        0x3854          --   Gb  - Linker created -
-.iar.init_table$$Limit       0x3864          --   Gb  - Linker created -
-?main                        0x3865         Code  Gb  cmain.o [4]
-ADC_Init                     0x36f1   0xa2  Code  Gb  adc.o [1]
-ADC_Read                     0x3793   0x36  Code  Gb  adc.o [1]
-BusFault_Handler             0x1027         Code  Wk  vectortrap_M.o [4]
-Buzzer_Beep                  0x2ef9   0x16  Code  Gb  Buzzer.o [1]
-Buzzer_Init                  0x2e45   0x72  Code  Gb  Buzzer.o [1]
-Buzzer_Off                   0x2ec5    0xe  Code  Gb  Buzzer.o [1]
-Buzzer_On                    0x2eb7    0xe  Code  Gb  Buzzer.o [1]
-CSTACK$$Base            0x2000'0028          --   Gb  - Linker created -
-CSTACK$$Limit           0x2000'1028          --   Gb  - Linker created -
-ClearPasswordBuffer          0x1d39   0x30  Code  Gb  main.o [1]
-DIO_Init                     0x2f11  0x2a0  Code  Gb  dio.o [1]
-DIO_ReadPin                  0x325d   0x48  Code  Gb  dio.o [1]
-DIO_SetPUR                   0x32a5   0xa0  Code  Gb  dio.o [1]
-DIO_WritePin                 0x31b1   0xac  Code  Gb  dio.o [1]
-DebugMon_Handler             0x1027         Code  Wk  vectortrap_M.o [4]
-DelayMs                      0x2aa7   0x22  Code  Gb  systick.o [1]
-DisplayMainMenu              0x1d11   0x28  Code  Gb  main.o [1]
-DisplayTimeoutValue          0x1e97   0x32  Code  Gb  main.o [1]
-Door_Init                    0x1c67   0x2a  Code  Gb  main.o [1]
-Door_Lock                    0x1c91   0x1c  Code  Gb  main.o [1]
-Door_Unlock                  0x1cad   0x1c  Code  Gb  main.o [1]
-EEPROM_Init                  0x3491   0x68  Code  Gb  eeprom.o [1]
-EEPROM_MassErase             0x3679   0x38  Code  Gb  eeprom.o [1]
-EEPROM_ReadBuffer            0x35ed   0x8c  Code  Gb  eeprom.o [1]
-EEPROM_ReadWord              0x351f   0x24  Code  Gb  eeprom.o [1]
-EEPROM_WaitDone              0x3465   0x2c  Code  Lc  eeprom.o [1]
-EEPROM_WriteBuffer           0x3561   0x8c  Code  Gb  eeprom.o [1]
-EEPROM_WriteWord             0x34f9   0x26  Code  Gb  eeprom.o [1]
-HandleDoorOperation          0x1ec9   0x82  Code  Gb  main.o [1]
-HardFault_Handler            0x1027         Code  Wk  vectortrap_M.o [4]
-Keypad_GetKey                0x2d15   0xac  Code  Gb  keypad.o [1]
-Keypad_Init                  0x2ca5   0x70  Code  Gb  keypad.o [1]
-LCD_Clear                    0x2c4f   0x10  Code  Gb  lcd.o [1]
-LCD_EnablePulse              0x2ad9   0x24  Code  Lc  lcd.o [1]
-LCD_Init                     0x2b3d   0xaa  Code  Gb  lcd.o [1]
-LCD_Send4Bits                0x2afd   0x40  Code  Lc  lcd.o [1]
-LCD_SendCommand              0x2be7   0x40  Code  Gb  lcd.o [1]
-LCD_SendData                 0x2c27   0x28  Code  Gb  lcd.o [1]
-LCD_SetCursor                0x2c5f   0x22  Code  Gb  lcd.o [1]
-LCD_WriteChar                0x2c97    0xe  Code  Gb  lcd.o [1]
-LCD_WriteString              0x2c81   0x16  Code  Gb  lcd.o [1]
-MemManage_Handler            0x1027         Code  Wk  vectortrap_M.o [4]
-Motor_Init                   0x2dd5   0x2c  Code  Gb  motor.o [1]
-Motor_RotateCCW              0x2e19   0x18  Code  Gb  motor.o [1]
-Motor_RotateCW               0x2e01   0x18  Code  Gb  motor.o [1]
-NMI_Handler                  0x1027         Code  Wk  vectortrap_M.o [4]
-POT_Init                     0x2e31    0xa  Code  Gb  potentiometer.o [1]
-POT_ReadRaw                  0x2e3b    0x8  Code  Gb  potentiometer.o [1]
-PendSV_Handler               0x1027         Code  Wk  vectortrap_M.o [4]
-ProcessKey                   0x1f4b  0x904  Code  Gb  main.o [1]
-ProcessKey::numberOfAttempts
-                        0x2000'0020    0x1  Data  Lc  main.o [1]
-ReadPotentiometerTimeout
-                             0x1e79   0x1e  Code  Gb  main.o [1]
-Region$$Table$$Base          0x3854          --   Gb  - Linker created -
-Region$$Table$$Limit         0x3864          --   Gb  - Linker created -
-RetrievePassword             0x1da3   0x4a  Code  Gb  main.o [1]
-RetrieveTimeout              0x1e0f   0x3e  Code  Gb  main.o [1]
-SVC_Handler                  0x1027         Code  Wk  vectortrap_M.o [4]
-StatusLED_Blink              0x1ce5   0x2c  Code  Gb  main.o [1]
-StatusLED_Off                0x1cd7    0xe  Code  Gb  main.o [1]
-StatusLED_On                 0x1cc9    0xe  Code  Gb  main.o [1]
-StorePassword                0x1d69   0x3a  Code  Gb  main.o [1]
-StoreTimeout                 0x1ded   0x22  Code  Gb  main.o [1]
-SysTick_Handler              0x1027         Code  Wk  vectortrap_M.o [4]
-SysTick_Init                 0x2a79   0x2e  Code  Gb  systick.o [1]
-System_Init                  0x1c3d   0x2a  Code  Gb  main.o [1]
-UsageFault_Handler           0x1027         Code  Wk  vectortrap_M.o [4]
-VerifyPassword               0x1e4d   0x2c  Code  Gb  main.o [1]
-_LitobFullNoMb                0xd5d  0x10c  Code  Lc  xprintffull_nomb.o [2]
-_PrintfFullNoMb                0x41  0xcec  Code  Gb  xprintffull_nomb.o [2]
-_PutcharFullNoMb              0xec1   0x20  Code  Lc  xprintffull_nomb.o [2]
-_PutcharsFullNoMb             0xee1   0x2e  Code  Lc  xprintffull_nomb.o [2]
-_SProut                       0xfa7    0xa  Code  Gb  xsprout.o [2]
-__aeabi_cdcmple              0x1169         Code  Gb  DblCmpLe.o [3]
-__aeabi_cdrcmple             0x119d         Code  Gb  DblCmpGe.o [3]
-__aeabi_d2iz                 0x130d         Code  Gb  DblToS32.o [3]
-__aeabi_d2uiz                0x1801         Code  Gb  DblToU32.o [3]
-__aeabi_ddiv                 0x15b9         Code  Gb  DblDiv.o [3]
-__aeabi_dmul                 0x1841         Code  Gb  DblMul.o [3]
-__aeabi_dsub                 0x14d5         Code  Gb  DblAddSub.o [3]
-__aeabi_i2d                  0x1345         Code  Gb  S32ToDbl.o [3]
-__aeabi_ldiv0                0x1c25         Code  Gb  I64DivZer.o [4]
-__aeabi_memset               0x33fd         Code  Gb  ABImemset.o [4]
-__aeabi_ui2d                 0x1825         Code  Gb  U32ToDbl.o [3]
-__aeabi_uldivmod             0x19ed         Code  Gb  I64DivMod.o [4]
-__cmain                      0x3865         Code  Gb  cmain.o [4]
-__exit                       0x1c29   0x14  Code  Gb  exit.o [5]
-__iar_Fail_s                  0xfb1   0x1c  Code  Gb  xfail_s.o [2]
-__iar_Memchr                 0x1029         Code  Gb  memchr.o [4]
-__iar_Memset                 0x33fd         Code  Gb  ABImemset.o [4]
-__iar_Memset_word            0x3405         Code  Gb  ABImemset.o [4]
-__iar_Strchr                  0xf91         Code  Gb  strchr.o [4]
-__iar_data_init3             0x3809   0x28  Code  Gb  data_init.o [4]
-__iar_frexp                  0x1105         Code  Gb  frexp.o [3]
-__iar_frexpl                 0x1105         Code  Gb  frexp.o [3]
-__iar_init_vfp               0x3831         Code  Gb  fpinit_M.o [3]
-__iar_ldexp64                0x11d1         Code  Gb  ldexp.o [3]
-__iar_packbits_init_single3
-                              0xf57   0x3a  Code  Gb  packbits_init_single.o [4]
-__iar_program_start          0x3899         Code  Gb  cstartup_M.o [4]
-__iar_scalbln64              0x11d1         Code  Gb  ldexp.o [3]
-__iar_scalbn64               0x11d1         Code  Gb  ldexp.o [3]
-__iar_softfp___iar_frexp64
-                             0x10f9         Code  Gb  frexp.o [3]
-__iar_softfp_frexp           0x10f9         Code  Gb  frexp.o [3]
-__iar_softfp_frexpl          0x10f9         Code  Gb  frexp.o [3]
-__iar_unaligned_memcpy       0x1081         Code  Gb  ABImemcpy_unaligned.o [4]
-__iar_unaligned_memcpy4
-                             0x10a1         Code  Gb  ABImemcpy_unaligned.o [4]
-__iar_unaligned_memcpy8
-                             0x10a1         Code  Gb  ABImemcpy_unaligned.o [4]
-__low_level_init             0x3883    0x4  Code  Gb  low_level_init.o [2]
-__vector_table                  0x0         Data  Gb  vector_table_M.o [4]
-_call_main                   0x3871         Code  Gb  cmain.o [4]
-_exit                        0x388d         Code  Gb  cexit.o [4]
-abort                        0x1c1d    0x6  Code  Gb  abort.o [2]
-auto_lock_timeout       0x2000'001c    0x1  Data  Lc  main.o [1]
-current_state           0x2000'001f    0x1  Data  Lc  main.o [1]
-exit                         0x3887    0x4  Code  Gb  exit.o [2]
-interruptMode           0x2000'0021    0x1  Data  Lc  systick.o [1]
-keypad_codes                 0x3918   0x10  Data  Gb  keypad.o [1]
-ldexp                        0x11d1         Code  Gb  ldexp.o [3]
-ldexpl                       0x11d1         Code  Gb  ldexp.o [3]
-main                         0x285d  0x176  Code  Gb  main.o [1]
-memchr                       0x1029         Code  Gb  memchr.o [4]
-password                0x2000'0000    0x8  Data  Lc  main.o [1]
-password_index          0x2000'001e    0x1  Data  Lc  main.o [1]
-pending_timeout         0x2000'001d    0x1  Data  Lc  main.o [1]
-scalbln                      0x11d1         Code  Gb  ldexp.o [3]
-scalblnl                     0x11d1         Code  Gb  ldexp.o [3]
-scalbn                       0x11d1         Code  Gb  ldexp.o [3]
-scalbnl                      0x11d1         Code  Gb  ldexp.o [3]
-scale                         0xe69   0x46  Code  Lc  xprintffull_nomb.o [2]
-sec_hand                0x2000'0018    0x4  Data  Lc  xfail_s.o [2]
-sprintf                      0x36b1   0x40  Code  Gb  sprintf.o [2]
-stored_password         0x2000'0010    0x8  Data  Lc  main.o [1]
-strchr                        0xf91         Code  Gb  strchr.o [4]
-strlen                        0xff1         Code  Gb  strlen.o [4]
-temp_password           0x2000'0008    0x8  Data  Lc  main.o [1]
+Entry                     Address  Size  Type      Object
+-----                     -------  ----  ----      ------
+?main                        0x65        Code  Gb  cmain.o [7]
+BusFault_Handler             0x63        Code  Wk  vectortrap_M.o [7]
+CSTACK$$Base          0x2000'0000         --   Gb  - Linker created -
+CSTACK$$Limit         0x2000'1000         --   Gb  - Linker created -
+DebugMon_Handler             0x63        Code  Wk  vectortrap_M.o [7]
+HardFault_Handler            0x63        Code  Wk  vectortrap_M.o [7]
+MemManage_Handler            0x63        Code  Wk  vectortrap_M.o [7]
+NMI_Handler                  0x63        Code  Wk  vectortrap_M.o [7]
+PendSV_Handler               0x63        Code  Wk  vectortrap_M.o [7]
+Region$$Table$$Base           0x0         --   Gb  - Linker created -
+Region$$Table$$Limit          0x0         --   Gb  - Linker created -
+SVC_Handler                  0x63        Code  Wk  vectortrap_M.o [7]
+SysTick_Handler              0x63        Code  Wk  vectortrap_M.o [7]
+UsageFault_Handler           0x63        Code  Wk  vectortrap_M.o [7]
+__cmain                      0x65        Code  Gb  cmain.o [7]
+__exit                       0x9d  0x14  Code  Gb  exit.o [8]
+__iar_init_vfp               0x41        Code  Gb  fpinit_M.o [6]
+__iar_program_start          0xb1        Code  Gb  cstartup_M.o [7]
+__low_level_init             0x83   0x4  Code  Gb  low_level_init.o [5]
+__vector_table                0x0        Data  Gb  vector_table_M.o [7]
+_call_main                   0x71        Code  Gb  cmain.o [7]
+_exit                        0x91        Code  Gb  cexit.o [7]
+exit                         0x8b   0x4  Code  Gb  exit.o [5]
+main                         0x87   0x4  Code  Gb  ECU_main.o [1]
 
 
-[1] = D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\Debug\Obj
-[2] = dl7M_tln.a
-[3] = m7M_tls.a
-[4] = rt7M_tl.a
-[5] = shb_l.a
+[1] = D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\Application
+[2] = D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\HAL
+[3] = D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\MCAL
+[4] = D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\HMI_ECU\HAL
+[5] = dl7M_tln.a
+[6] = m7M_tls.a
+[7] = rt7M_tl.a
+[8] = shb_l.a
 
-  14'498 bytes of readonly  code memory
-     600 bytes of readonly  data memory
-   4'130 bytes of readwrite data memory
+    204 bytes of readonly  code memory
+  4'096 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

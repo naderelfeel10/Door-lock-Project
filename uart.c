@@ -122,6 +122,67 @@ void UART0_SendString(const char *str)
     }
 }
 
+void UART0_ReceiveString(char *buffer)
+{
+    char c;
+    uint32_t i = 0;
+
+    while (1)
+    {
+        c = UART0_ReceiveChar();   // blocking receive
+
+        if (c == '\r' || c == '\n')   // Enter from PuTTY
+        {
+            buffer[i] = '\0';
+            break;
+        }
+
+        buffer[i++] = c;
+    }
+}
+void UART0_SendUInt(uint32_t num)
+{
+    char buffer[11];
+    int i = 0;
+
+    if (num == 0)
+    {
+        UART0_SendChar('0');
+        return;
+    }
+
+    while (num > 0)
+    {
+        buffer[i++] = (num % 10) + '0';
+        num /= 10;
+    }
+
+    while (i--)
+    {
+        UART0_SendChar(buffer[i]);
+    }
+}
+
+uint32_t UART0_ReceiveUInt(void)
+{
+    char c;
+    uint32_t value = 0;
+
+    while (1)
+    {
+        c = UART0_ReceiveChar();
+
+        if (c == '\r' || c == '\n')
+            break;
+
+        if (c >= '0' && c <= '9')
+        {
+            value = (value * 10) + (c - '0');
+        }
+    }
+    return value;
+}
+
 /*
  * UART0_IsDataAvailable
  * Checks if data is available in the receive FIFO.

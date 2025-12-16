@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"D:\programs\IAR Systems\Emdeded Workbench 9.0_2\common\bin\cspybat" -f "D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\settings\05-EEPROM-Demo.Debug.general.xcl" --backend -f "D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\settings\05-EEPROM-Demo.Debug.driver.xcl" 
+"D:\programs\IAR Systems\Emdeded Workbench 9.0_2\common\bin\cspybat" -f "D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\settings\05-EEPROM-Demo.Debug.general.xcl" --backend -f "D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\settings\05-EEPROM-Demo.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"D:\programs\IAR Systems\Emdeded Workbench 9.0_2\common\bin\cspybat" -f "D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\settings\05-EEPROM-Demo.Debug.general.xcl" "--debug_file=%~1" --backend -f "D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\settings\05-EEPROM-Demo.Debug.driver.xcl" 
+"D:\programs\IAR Systems\Emdeded Workbench 9.0_2\common\bin\cspybat" -f "D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\settings\05-EEPROM-Demo.Debug.general.xcl" "--debug_file=%~1" --backend -f "D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\settings\05-EEPROM-Demo.Debug.driver.xcl" 
 
 @echo off 
 :end

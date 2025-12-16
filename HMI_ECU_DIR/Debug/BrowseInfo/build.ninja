@@ -1,0 +1,120 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\common\bin\XclFileGenerator.exe $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\common\bin\SourceIndexer.exe $flags
+
+rule MAKEBROWSE
+  command = D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\common\bin\makeBrowseData.exe $flags
+
+rule PDBLINK
+  command = D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\common\bin\PbdLink.exe $flags
+
+
+
+#Build steps
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\Application\HMI_main.c -xcl_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.xcl -macro_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.tmp -icc_path "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\bin\iccarm.exe"
+  flags = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\Application\HMI_main.c -o D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\Obj\HMI_ECU\Application --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\inc\c\DLib_Config_Normal.h" -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\ -On --predef_macros D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.tmp
+  rspfile_name = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.xcl.rsp
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\keypad.c -xcl_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.xcl -macro_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.tmp -icc_path "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\bin\iccarm.exe"
+  flags = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\keypad.c -o D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\Obj\HMI_ECU\HAL --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\inc\c\DLib_Config_Normal.h" -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\ -On --predef_macros D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.tmp
+  rspfile_name = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.xcl.rsp
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\lcd.c -xcl_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.xcl -macro_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.tmp -icc_path "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\bin\iccarm.exe"
+  flags = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\lcd.c -o D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\Obj\HMI_ECU\HAL --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\inc\c\DLib_Config_Normal.h" -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\ -On --predef_macros D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.tmp
+  rspfile_name = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.xcl.rsp
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\potentiometer.c -xcl_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.xcl -macro_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.tmp -icc_path "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\bin\iccarm.exe"
+  flags = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\potentiometer.c -o D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\Obj\HMI_ECU\HAL --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\inc\c\DLib_Config_Normal.h" -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\ -On --predef_macros D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.tmp
+  rspfile_name = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.xcl.rsp
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\adc.c -xcl_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.xcl -macro_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.tmp -icc_path "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\bin\iccarm.exe"
+  flags = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\adc.c -o D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\Obj\HMI_ECU\MCAL --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\inc\c\DLib_Config_Normal.h" -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\ -On --predef_macros D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.tmp
+  rspfile_name = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.xcl.rsp
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\dio.c -xcl_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.xcl -macro_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.tmp -icc_path "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\bin\iccarm.exe"
+  flags = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\dio.c -o D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\Obj\HMI_ECU\MCAL --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\inc\c\DLib_Config_Normal.h" -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\ -On --predef_macros D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.tmp
+  rspfile_name = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.xcl.rsp
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\systick.c -xcl_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.xcl -macro_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.tmp -icc_path "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\bin\iccarm.exe"
+  flags = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\systick.c -o D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\Obj\HMI_ECU\MCAL --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\inc\c\DLib_Config_Normal.h" -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\ -On --predef_macros D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.tmp
+  rspfile_name = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.xcl.rsp
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\uart.c -xcl_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.xcl -macro_file D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.tmp -icc_path "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\bin\iccarm.exe"
+  flags = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\uart.c -o D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\Obj\HMI_ECU\MCAL --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\programs\IAR$ Systems\Emdeded$ Workbench$ 9.0_2\arm\inc\c\DLib_Config_Normal.h" -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\ -I D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\ -On --predef_macros D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.tmp
+  rspfile_name = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.xcl.rsp
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.pbi : INDEXER D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.xcl |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\Application\HMI_main.c
+  flags = -out=D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.pbi -f D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.xcl
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.pbi : INDEXER D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.xcl |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\keypad.c
+  flags = -out=D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.pbi -f D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.xcl
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.pbi : INDEXER D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.xcl |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\lcd.c
+  flags = -out=D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.pbi -f D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.xcl
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.pbi : INDEXER D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.xcl |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\HAL\potentiometer.c
+  flags = -out=D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.pbi -f D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.xcl
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.pbi : INDEXER D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.xcl |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\adc.c
+  flags = -out=D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.pbi -f D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.xcl
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.pbi : INDEXER D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.xcl |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\dio.c
+  flags = -out=D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.pbi -f D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.xcl
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.pbi : INDEXER D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.xcl |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\systick.c
+  flags = -out=D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.pbi -f D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.xcl
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.pbi : INDEXER D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.xcl |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\HMI_ECU\MCAL\uart.c
+  flags = -out=D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.pbi -f D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.xcl
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU.pbw : MAKEBROWSE D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU.pbd
+  flags = D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU.pbd -output D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU.pbw
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part0.pbi : PDBLINK D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.pbi |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.pbi $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.pbi
+  flags = -M D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part0.pbi D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\Application\HMI_main.pbi D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\keypad.pbi D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\lcd.pbi
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part1.pbi : PDBLINK D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.pbi |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.pbi $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.pbi
+  flags = -M D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part1.pbi D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\HAL\potentiometer.pbi D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\adc.pbi D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\dio.pbi
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part2.pbi : PDBLINK D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.pbi |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.pbi
+  flags = -M D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part2.pbi D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\systick.pbi D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU\MCAL\uart.pbi
+
+build D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU.pbd : PDBLINK D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part0.pbi |  $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part1.pbi $
+D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part2.pbi
+  flags = -M D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU.pbd D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part0.pbi D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part1.pbi D$:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\HMI_ECU_DIR\Debug\BrowseInfo\HMI_ECU_part2.pbi
+

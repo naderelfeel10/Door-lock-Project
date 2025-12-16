@@ -271,6 +271,7 @@ uint8_t RetrievePassword(char* pwd)
     
     if(result == EEPROM_SUCCESS)
     {
+        
         /* Convert bytes to password string */
         for(i = 0; i < PASSWORD_LENGTH; i++)
         {
@@ -323,6 +324,7 @@ uint8_t RetrieveTimeout(uint8_t* timeout)
  * VerifyPassword
  * Compares input password with stored password.
  */
+
 uint8_t VerifyPassword(const char* input, const char* stored)
 {
     uint8_t i;
@@ -953,6 +955,7 @@ int main(void)
     
     DelayMs(1000);
     
+
     /* Try to retrieve existing password */
     if(RetrievePassword(stored_password) == EEPROM_SUCCESS)
     {

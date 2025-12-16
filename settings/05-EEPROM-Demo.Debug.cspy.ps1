@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "D:\programs\IAR Systems\Emdeded Workbench 9.0_2\common\bin\cspybat" -f "D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\settings\05-EEPROM-Demo.Debug.general.xcl" --backend -f "D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\settings\05-EEPROM-Demo.Debug.driver.xcl" 
+& "D:\programs\IAR Systems\Emdeded Workbench 9.0_2\common\bin\cspybat" -f "D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\settings\05-EEPROM-Demo.Debug.general.xcl" --backend -f "D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\settings\05-EEPROM-Demo.Debug.driver.xcl" 
 }
 else
 {
-& "D:\programs\IAR Systems\Emdeded Workbench 9.0_2\common\bin\cspybat" -f "D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\settings\05-EEPROM-Demo.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\DeepLearning\IAR_PROJECTS\Embedded\EEPROM-Demo\settings\05-EEPROM-Demo.Debug.driver.xcl" 
+& "D:\programs\IAR Systems\Emdeded Workbench 9.0_2\common\bin\cspybat" -f "D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\settings\05-EEPROM-Demo.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\settings\05-EEPROM-Demo.Debug.driver.xcl" 
 }

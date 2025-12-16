@@ -51,6 +51,7 @@
  */
 uint8_t EEPROM_Init(void);
 
+
 /*
  * EEPROM_WriteWord
  * Writes a 32-bit word to the specified EEPROM address.
