@@ -224,6 +224,7 @@ void handleDoor_HMI(void){
 
 }
 
+
 /*
  * ReadPotentiometerTimeout
  * Reads the potentiometer and maps to timeout value (5-30 seconds).
@@ -314,28 +315,28 @@ void ProcessKey(char key)
                     if(password_index == PASSWORD_LENGTH)
                     {
                         temp_password[PASSWORD_LENGTH] = '\0';
-                        DelayMs(300);
+                        //DelayMs(300);
                         
                         
                         /* Verify passwords match */
                         if(VerifyPassword(password, temp_password))
                         {
-                          UART0_SendChar('\n'); // \n
+                          //UART0_SendChar('\n'); // \n
                           
                           //char received = UART0_ReceiveChar();
+                          UART0_SendChar('H');
+                          UART0_SendString(password);
+                          DelayMs(20);
                           char received;
                            while(1)
                              {
                           if(UART0_IsDataAvailable()){
                               received = UART0_ReceiveChar();
-                              UART0_SendChar(received);
-                              if(received == '1' || received == '0'){
                                              break;
-                              }
+                              
                                 }
                             }
                            
-                             
                           
                             // Save to EEPROM 
                             if(received == '1')
@@ -509,39 +510,29 @@ void ProcessKey(char key)
                     if(password_index == PASSWORD_LENGTH)
                     {
                         password[PASSWORD_LENGTH] = '\0';
-                        DelayMs(300);
+                        //DelayMs(300);
                         
-                        /* Retrieve stored password */
-                              UART0_SendChar('E');
-                              char tmp_stored_password_Received;
-                                   while(1){
-                                    if (UART0_IsDataAvailable()){
-                                         tmp_stored_password_Received =  UART0_ReceiveChar();
-                                          break;
-                                      } 
-                                   } 
-                                   
-                        if(tmp_stored_password_Received == '1')
-                        {
-                          UART0_SendString(password);
-                        while(1){
-                          if (UART0_IsDataAvailable()){
-                                tmp_stored_password_Received =  UART0_ReceiveChar();
-                                 break;
-                                 } 
-                          } 
-                                   
-                            if(tmp_stored_password_Received == '2')
-                            {
-                                /* Correct password */
-                                 handleDoor_HMI();
-                                ClearPasswordBuffer();
-                                current_state = STATE_MAIN_MENU;
-                                numberOfAttempts  = 0;
-                                DisplayMainMenu();
-                            }
-                            else
-                            {
+UART0_SendChar('E');
+
+/* wait ready */
+while(!UART0_IsDataAvailable());
+if(UART0_ReceiveChar() == '1')
+{
+    UART0_SendString(password);
+
+    while(!UART0_IsDataAvailable());
+    char result = UART0_ReceiveChar();
+
+    if(result == '2')
+    {
+        handleDoor_HMI();
+        ClearPasswordBuffer();
+        current_state = STATE_MAIN_MENU;
+        numberOfAttempts = 0;
+        DisplayMainMenu();
+    }
+    else
+    {
                                 /* Incorrect password */
 /* Incorrect password */
 LCD_Clear();
@@ -614,6 +605,7 @@ else
                         if(tmp_stored_password_Received2 == '1')
                         {
                           UART0_SendString(password);
+                          DelayMs(200);
                         while(1){
                           if (UART0_IsDataAvailable()){
                                 tmp_stored_password_Received2 =  UART0_ReceiveChar();
@@ -715,12 +707,13 @@ else
                           char store_new_pass_received ;
                             UART0_SendChar('H');
                             
-                            while(1){
-                              if(UART0_IsDataAvailable()){
+                           // while(1){
+                             // if(UART0_IsDataAvailable()){
                                UART0_SendString(password);
-                               break;
-                              }
-                            }
+                               DelayMs(200);
+                              // break;
+                              //}
+                            //}
                             
                             while(1){
                               if(UART0_IsDataAvailable()){
@@ -804,51 +797,34 @@ else
                     password_index++;
                     LCD_WriteChar('*');
                     
-                    if(password_index == PASSWORD_LENGTH)
-                    {
-                        password[PASSWORD_LENGTH] = '\0';
-                        DelayMs(300);
-                        
-                        /* Retrieve stored password */
-                         UART0_SendChar('E');
-                          char tmp_stored_password_Received;
-                            while(1){
-                             if (UART0_IsDataAvailable()){
-                              tmp_stored_password_Received =  UART0_ReceiveChar();
-                            break;
-                         } 
-                       } 
-                        if( tmp_stored_password_Received== '1')
-                        {
-                          
-                          UART0_SendString(password);
-                        while(1){
-                          if (UART0_IsDataAvailable()){
-                                tmp_stored_password_Received =  UART0_ReceiveChar();
-                                 break;
-                                } 
-                      } 
-                                   
-                          if(tmp_stored_password_Received == '2')
-                         {
+            if(password_index == PASSWORD_LENGTH)
+            {
+                password[PASSWORD_LENGTH] = '\0';
+
+UART0_SendChar('E');
+
+while(!UART0_IsDataAvailable());
+if(UART0_ReceiveChar() == '1')
+{
+    for(uint8_t i = 0; i < PASSWORD_LENGTH; i++)
+    {
+        UART0_SendChar(password[i]);
+    }
+
+
+
+    while(!UART0_IsDataAvailable());
+    char result = UART0_ReceiveChar();
+
+    if(result == '2')
+    {
                                 /* Correct password - save timeout */
                                 auto_lock_timeout = pending_timeout;
-                                UART0_SendChar('I');
-                                
-                                while(1){
-                                  if(UART0_IsDataAvailable()){
-                                    UART0_SendUInt(auto_lock_timeout);
-                                    break;
-                                   }
-                                }
-                            char StoreTimeoutReceived ;
+UART0_SendChar('I');         
+UART0_SendUInt(auto_lock_timeout);  
 
-                             while(1){
-                                  if(UART0_IsDataAvailable()){
-                                    StoreTimeoutReceived = UART0_ReceiveChar();
-                                    break;
-                                   }
-                                }
+while(!UART0_IsDataAvailable());   
+char StoreTimeoutReceived = UART0_ReceiveChar();
                                 
                                 if(StoreTimeoutReceived == '1')
                                 {
@@ -927,7 +903,7 @@ int main(void)
        break;
      } 
        }
-     
+     //printf(EEPROM_SUCCESS_Received);
      if(EEPROM_SUCCESS_Received == '0'){
         LCD_Clear();
         LCD_SetCursor(0, 0);

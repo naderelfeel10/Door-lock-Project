@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.10.1.308/W64 for ARM                  17/Dec/2025  13:18:12
+# IAR ELF Linker V9.10.1.308/W64 for ARM                  17/Dec/2025  21:53:04
 # Copyright 2007-2021 IAR Systems AB.
 #
 #    Output file  =
@@ -69,16 +69,16 @@ initialize by copy { rw };
                                    - 0x40    0x40
 
 "P1":                                       0xe6a
-  .text              ro code         0x40   0x3ec  dio.o [3]
-  .text              ro code        0x42c   0x3dc  ECU_main.o [1]
-  .text              ro code        0x808    0x60  systick.o [3]
-  .text              ro code        0x868    0x5c  motor.o [2]
-  .text              ro code        0x8c4    0xca  Buzzer.o [2]
-  .text              ro code        0x98e    0x3a  packbits_init_single.o [6]
-  .text              ro code        0x9c8    0x66  ABImemset.o [6]
-  .text              ro code        0xa2e     0x2  vectortrap_M.o [6]
-  .text              ro code        0xa30   0x24c  eeprom.o [3]
-  .text              ro code        0xc7c   0x168  uart.o [3]
+  .text              ro code         0x40   0x400  ECU_main.o [1]
+  .text              ro code        0x440    0x60  systick.o [3]
+  .text              ro code        0x4a0    0x5c  motor.o [2]
+  .text              ro code        0x4fc    0xca  Buzzer.o [2]
+  .text              ro code        0x5c6    0x3a  packbits_init_single.o [6]
+  .text              ro code        0x600   0x3ec  dio.o [3]
+  .text              ro code        0x9ec    0x66  ABImemset.o [6]
+  .text              ro code        0xa52     0x2  vectortrap_M.o [6]
+  .text              ro code        0xa54   0x24c  eeprom.o [3]
+  .text              ro code        0xca0   0x144  uart.o [3]
   .text              ro code        0xde4    0x28  data_init.o [6]
   .text              ro code        0xe0c    0x22  fpinit_M.o [5]
   .iar.init_table    const          0xe30    0x10  - Linker created -
@@ -140,9 +140,9 @@ command line/config:
     Total:
 
 D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\Application: [1]
-    ECU_main.o                  988        5       18
+    ECU_main.o                1'024        5       18
     -------------------------------------------------
-    Total:                      988        5       18
+    Total:                    1'024        5       18
 
 D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\HAL: [2]
     Buzzer.o                    202
@@ -154,9 +154,9 @@ D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\Obj\Control_ECU\MC
     dio.o                     1'004
     eeprom.o                    588
     systick.o                    96        1        1
-    uart.o                      360
+    uart.o                      324
     -------------------------------------------------
-    Total:                    2'048        1        1
+    Total:                    2'012        1        1
 
 dl7M_tln.a: [4]
     exit.o                        4
@@ -201,69 +201,68 @@ Entry                       Address   Size  Type      Object
 .iar.init_table$$Base         0xe30          --   Gb  - Linker created -
 .iar.init_table$$Limit        0xe40          --   Gb  - Linker created -
 ?main                         0xe41         Code  Gb  cmain.o [6]
-BusFault_Handler              0xa2f         Code  Wk  vectortrap_M.o [6]
-Buzzer_Beep                   0x979   0x16  Code  Gb  Buzzer.o [2]
-Buzzer_Init                   0x8c5   0x72  Code  Gb  Buzzer.o [2]
-Buzzer_Off                    0x945    0xe  Code  Gb  Buzzer.o [2]
-Buzzer_On                     0x937    0xe  Code  Gb  Buzzer.o [2]
+BusFault_Handler              0xa53         Code  Wk  vectortrap_M.o [6]
+Buzzer_Beep                   0x5b1   0x16  Code  Gb  Buzzer.o [2]
+Buzzer_Init                   0x4fd   0x72  Code  Gb  Buzzer.o [2]
+Buzzer_Off                    0x57d    0xe  Code  Gb  Buzzer.o [2]
+Buzzer_On                     0x56f    0xe  Code  Gb  Buzzer.o [2]
 CSTACK$$Base            0x2000'0018          --   Gb  - Linker created -
 CSTACK$$Limit           0x2000'1018          --   Gb  - Linker created -
-ClearPasswordBuffer           0x46d   0x24  Code  Gb  ECU_main.o [1]
-DIO_Init                       0x41  0x2a0  Code  Gb  dio.o [3]
-DIO_WritePin                  0x2e1   0xac  Code  Gb  dio.o [3]
-DebugMon_Handler              0xa2f         Code  Wk  vectortrap_M.o [6]
-DelayMs                       0x837   0x22  Code  Gb  systick.o [3]
-Door_Init                     0x447   0x26  Code  Gb  ECU_main.o [1]
-Door_Lock                     0x6d5   0x1c  Code  Gb  ECU_main.o [1]
-Door_Unlock                   0x6f1   0x1c  Code  Gb  ECU_main.o [1]
-EEPROM_Init                   0xa5d   0x68  Code  Gb  eeprom.o [3]
-EEPROM_MassErase              0xc45   0x38  Code  Gb  eeprom.o [3]
-EEPROM_ReadBuffer             0xbb9   0x8c  Code  Gb  eeprom.o [3]
-EEPROM_ReadWord               0xaeb   0x24  Code  Gb  eeprom.o [3]
-EEPROM_WaitDone               0xa31   0x2c  Code  Lc  eeprom.o [3]
-EEPROM_WriteBuffer            0xb2d   0x8c  Code  Gb  eeprom.o [3]
-EEPROM_WriteWord              0xac5   0x26  Code  Gb  eeprom.o [3]
-HandleDoorOperation           0x70d   0x18  Code  Gb  ECU_main.o [1]
-HardFault_Handler             0xa2f         Code  Wk  vectortrap_M.o [6]
-MemManage_Handler             0xa2f         Code  Wk  vectortrap_M.o [6]
-Motor_Init                    0x869   0x2c  Code  Gb  motor.o [2]
-Motor_RotateCCW               0x8ad   0x18  Code  Gb  motor.o [2]
-Motor_RotateCW                0x895   0x18  Code  Gb  motor.o [2]
-NMI_Handler                   0xa2f         Code  Wk  vectortrap_M.o [6]
-PendSV_Handler                0xa2f         Code  Wk  vectortrap_M.o [6]
+ClearPasswordBuffer            0x81   0x20  Code  Gb  ECU_main.o [1]
+DIO_Init                      0x601  0x2a0  Code  Gb  dio.o [3]
+DIO_WritePin                  0x8a1   0xac  Code  Gb  dio.o [3]
+DebugMon_Handler              0xa53         Code  Wk  vectortrap_M.o [6]
+DelayMs                       0x46f   0x22  Code  Gb  systick.o [3]
+Door_Init                      0x5b   0x26  Code  Gb  ECU_main.o [1]
+Door_Lock                     0x2f9   0x1c  Code  Gb  ECU_main.o [1]
+Door_Unlock                   0x315   0x1c  Code  Gb  ECU_main.o [1]
+EEPROM_Init                   0xa81   0x68  Code  Gb  eeprom.o [3]
+EEPROM_MassErase              0xc69   0x38  Code  Gb  eeprom.o [3]
+EEPROM_ReadBuffer             0xbdd   0x8c  Code  Gb  eeprom.o [3]
+EEPROM_ReadWord               0xb0f   0x24  Code  Gb  eeprom.o [3]
+EEPROM_WaitDone               0xa55   0x2c  Code  Lc  eeprom.o [3]
+EEPROM_WriteBuffer            0xb51   0x8c  Code  Gb  eeprom.o [3]
+EEPROM_WriteWord              0xae9   0x26  Code  Gb  eeprom.o [3]
+HandleDoorOperation           0x331   0x26  Code  Gb  ECU_main.o [1]
+HardFault_Handler             0xa53         Code  Wk  vectortrap_M.o [6]
+MemManage_Handler             0xa53         Code  Wk  vectortrap_M.o [6]
+Motor_Init                    0x4a1   0x2c  Code  Gb  motor.o [2]
+Motor_RotateCW                0x4cd   0x18  Code  Gb  motor.o [2]
+Motor_Stop                    0x4e5   0x18  Code  Gb  motor.o [2]
+NMI_Handler                   0xa53         Code  Wk  vectortrap_M.o [6]
+PendSV_Handler                0xa53         Code  Wk  vectortrap_M.o [6]
 Region$$Table$$Base           0xe30          --   Gb  - Linker created -
 Region$$Table$$Limit          0xe40          --   Gb  - Linker created -
-RetrievePassword              0x4cb   0x4a  Code  Gb  ECU_main.o [1]
-RetrieveTimeout               0x537   0x3e  Code  Gb  ECU_main.o [1]
-SVC_Handler                   0xa2f         Code  Wk  vectortrap_M.o [6]
-StorePassword                 0x491   0x3a  Code  Gb  ECU_main.o [1]
-StoreTimeout                  0x515   0x22  Code  Gb  ECU_main.o [1]
-SysTick_Handler               0xa2f         Code  Wk  vectortrap_M.o [6]
-SysTick_Init                  0x809   0x2e  Code  Gb  systick.o [3]
-System_Init                   0x42d   0x1a  Code  Gb  ECU_main.o [1]
-UART0_Init                    0xc7d   0x84  Code  Gb  uart.o [3]
-UART0_IsDataAvailable         0xda1   0x12  Code  Gb  uart.o [3]
-UART0_ReceiveChar             0xd13   0x10  Code  Gb  uart.o [3]
-UART0_ReceiveString           0xd39   0x2a  Code  Gb  uart.o [3]
-UART0_ReceiveUInt             0xd63   0x3e  Code  Gb  uart.o [3]
-UART0_SendChar                0xd01   0x12  Code  Gb  uart.o [3]
-UART0_SendString              0xd23   0x16  Code  Gb  uart.o [3]
-UART_EEPROM_Init              0x623   0x1a  Code  Gb  ECU_main.o [1]
-UART_RetrievePassword         0x63d   0x3c  Code  Gb  ECU_main.o [1]
-UART_RetrieveTimeout          0x679   0x1a  Code  Gb  ECU_main.o [1]
-UART_SavePasswordCase         0x5a1   0x82  Code  Gb  ECU_main.o [1]
-UART_verifyPassword           0x693   0x42  Code  Gb  ECU_main.o [1]
-UsageFault_Handler            0xa2f         Code  Wk  vectortrap_M.o [6]
-VerifyPassword                0x575   0x2c  Code  Gb  ECU_main.o [1]
-__aeabi_memset                0x9c9         Code  Gb  ABImemset.o [6]
+RetrievePassword               0xdb   0x4a  Code  Gb  ECU_main.o [1]
+RetrieveTimeout               0x147   0x3e  Code  Gb  ECU_main.o [1]
+SVC_Handler                   0xa53         Code  Wk  vectortrap_M.o [6]
+StorePassword                  0xa1   0x3a  Code  Gb  ECU_main.o [1]
+StoreTimeout                  0x125   0x22  Code  Gb  ECU_main.o [1]
+SysTick_Handler               0xa53         Code  Wk  vectortrap_M.o [6]
+SysTick_Init                  0x441   0x2e  Code  Gb  systick.o [3]
+System_Init                    0x41   0x1a  Code  Gb  ECU_main.o [1]
+UART0_Init                    0xca1   0x7e  Code  Gb  uart.o [3]
+UART0_IsDataAvailable         0xd41   0x12  Code  Gb  uart.o [3]
+UART0_ReceiveChar             0xd31   0x10  Code  Gb  uart.o [3]
+UART0_ReceiveString           0xdcb   0x1a  Code  Gb  uart.o [3]
+UART0_ReceiveUInt             0xd85   0x46  Code  Gb  uart.o [3]
+UART0_SendChar                0xd1f   0x12  Code  Gb  uart.o [3]
+UART_EEPROM_Init              0x233   0x1a  Code  Gb  ECU_main.o [1]
+UART_RetrievePassword         0x24d   0x3c  Code  Gb  ECU_main.o [1]
+UART_RetrieveTimeout          0x289   0x22  Code  Gb  ECU_main.o [1]
+UART_SavePasswordCase         0x1b1   0x82  Code  Gb  ECU_main.o [1]
+UART_verifyPassword           0x2ab   0x4e  Code  Gb  ECU_main.o [1]
+UsageFault_Handler            0xa53         Code  Wk  vectortrap_M.o [6]
+VerifyPassword                0x185   0x2c  Code  Gb  ECU_main.o [1]
+__aeabi_memset                0x9ed         Code  Gb  ABImemset.o [6]
 __cmain                       0xe41         Code  Gb  cmain.o [6]
 __exit                        0xe75   0x14  Code  Gb  exit.o [7]
-__iar_Memset                  0x9c9         Code  Gb  ABImemset.o [6]
-__iar_Memset_word             0x9d1         Code  Gb  ABImemset.o [6]
+__iar_Memset                  0x9ed         Code  Gb  ABImemset.o [6]
+__iar_Memset_word             0x9f5         Code  Gb  ABImemset.o [6]
 __iar_data_init3              0xde5   0x28  Code  Gb  data_init.o [6]
 __iar_init_vfp                0xe0d         Code  Gb  fpinit_M.o [5]
 __iar_packbits_init_single3
-                              0x98f   0x3a  Code  Gb  packbits_init_single.o [6]
+                              0x5c7   0x3a  Code  Gb  packbits_init_single.o [6]
 __iar_program_start           0xe89         Code  Gb  cstartup_M.o [6]
 __low_level_init              0xe5f    0x4  Code  Gb  low_level_init.o [4]
 __vector_table                  0x0         Data  Gb  vector_table_M.o [6]
@@ -273,7 +272,7 @@ auto_lock_timeout       0x2000'0010    0x1  Data  Lc  ECU_main.o [1]
 buffer                  0x2000'0000    0x8  Data  Lc  ECU_main.o [1]
 exit                          0xe63    0x4  Code  Gb  exit.o [4]
 interruptMode           0x2000'0012    0x1  Data  Lc  systick.o [3]
-main                          0x725   0xd0  Code  Gb  ECU_main.o [1]
+main                          0x369   0xd8  Code  Gb  ECU_main.o [1]
 password_index          0x2000'0011    0x1  Data  Lc  ECU_main.o [1]
 stored_password         0x2000'0008    0x8  Data  Lc  ECU_main.o [1]
 

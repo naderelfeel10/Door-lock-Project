@@ -214,7 +214,7 @@ void UART_SavePasswordCase()
         }
         break;
     }
-    else if(received == '\n')
+    else if(received == '\0')
     {
       
         buffer[password_index] = '\0'; 
@@ -289,31 +289,47 @@ void UART_RetrieveTimeout(void){
         auto_lock_timeout = 10;  /* Default */
         UART0_SendChar('1');
     }
-    //else{UART0_SendChar('0');}
+    else{UART0_SendChar('0');}
  }
 
+/*
+void UART_verifyPassword(void)
+{
+    char rx_password[PASSWORD_LENGTH + 1];
 
-void UART_verifyPassword(void){
+    if(RetrievePassword(stored_password) == EEPROM_SUCCESS)
+    {
+        UART0_SendChar('1');   // ready
+        UART0_ReceiveString(rx_password);
 
-        if(RetrievePassword(stored_password) == EEPROM_SUCCESS)
-               {
-                 UART0_SendChar('1');
+        if(VerifyPassword(rx_password, stored_password))
+            UART0_SendChar('2');   // correct
+        else
+            UART0_SendChar('3');   // wrong
+    }
+}
+*/
+void UART_verifyPassword(void)
+{
+    char rx_password[PASSWORD_LENGTH + 1];
 
-              char password[PASSWORD_LENGTH + 1];
-             while(1){
-                  if (UART0_IsDataAvailable()){
-              UART0_ReceiveString(password);
-                     break;
-                       } 
-                      } 
-                 UART0_SendString(password);            
-              if(VerifyPassword(password, stored_password))
-               {
-                 UART0_SendChar('2');
-                }
-              else{UART0_SendChar('3');}
-           }
-  }
+    if(RetrievePassword(stored_password) == EEPROM_SUCCESS)
+    {
+        UART0_SendChar('1');   // ready
+
+        for(uint8_t i = 0; i < PASSWORD_LENGTH; i++)
+        {
+            rx_password[i] = UART0_ReceiveChar();
+        }
+        rx_password[PASSWORD_LENGTH] = '\0';
+
+        if(VerifyPassword(rx_password, stored_password))
+            UART0_SendChar('2');   // correct
+        else
+            UART0_SendChar('3');   // wrong
+    }
+}
+
 
 /*
  * Door_Lock
@@ -323,7 +339,7 @@ void Door_Lock(void)
 {
     DIO_WritePin(PORTF, DOOR_LED_RED, HIGH);
     DIO_WritePin(PORTF, DOOR_LED_GREEN, LOW);
-    Motor_RotateCCW();
+    Motor_Stop();
 }
 
 /*
@@ -344,7 +360,8 @@ void HandleDoorOperation(void)
     Door_Unlock();
     UART0_SendChar('u');
   
-    
+    DelayMs(auto_lock_timeout * 1000);
+
     /* Lock the door */
     Door_Lock();
     UART0_SendChar('l');
@@ -355,35 +372,46 @@ int main(void)
 {
     System_Init();
     UART0_Init();
-    EEPROM_Init();
+    //EEPROM_Init();
     while(1)
     {
         if(UART0_IsDataAvailable())
         {
             char receivedChar = UART0_ReceiveChar();
                     /* Echo the character back to PuTTY */
-        UART0_SendChar(receivedChar);
-        UART0_SendString("\r\n");  /* New line for better readability */
+        //UART0_SendChar(receivedChar);
+        //UART0_SendString("\r\n");  /* New line for better readability */
          switch(receivedChar){
          
          // save the password then send the result 
          case 'A':
                 UART_SavePasswordCase();
                 //UART0_SendChar('S');
+                break;
          case 'B':
            UART_EEPROM_Init();
+                break;
            
          case 'C':
            UART_RetrievePassword();
+                break;
            
          case 'D':
            UART_RetrieveTimeout();
+                break;
+
          case 'E':
            UART_verifyPassword();
+                break;
+
          case 'F':
                HandleDoorOperation();
+                break;
+
          case 'G':
            Buzzer_Beep(3000);
+                break;
+
          case 'H':
            char password_to_store[PASSWORD_LENGTH+1];
              while(1){
@@ -397,19 +425,25 @@ int main(void)
                   UART0_SendChar('1');
                 }else {    UART0_SendChar('0'); }  
            
+                             break;
+
          case 'I':
                uint8_t new_timeout = UART0_ReceiveUInt();
+               DelayMs(20);
               if(StoreTimeout(new_timeout) == EEPROM_SUCCESS)
                 {
                   UART0_SendChar('1');
                 }else {  UART0_SendChar('0'); }
+                break;
+
          case 'J':
               if(EEPROM_MassErase() == EEPROM_SUCCESS)
                     {
                       UART0_SendChar('1');
                     }
                     else { UART0_SendChar('0');}    
-               
+            break;
+         default : break;
          }
 
     }

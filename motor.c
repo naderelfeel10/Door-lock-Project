@@ -18,9 +18,9 @@
  * IN1 -> PF0 (Motor input 1)
  * IN4 -> PF4 (Motor input 2)
  */
-#define MOTOR_PORT      PORTD
+#define MOTOR_PORT      PORTF
 #define MOTOR_IN1       PIN0
-#define MOTOR_IN2       PIN1
+#define MOTOR_IN2       PIN4
 
 /******************************************************************************
  *                          Function Definitions                               *

@@ -59,6 +59,11 @@ char UART0_ReceiveChar(void);
  */
 void UART0_SendString(const char *str);
 
+void UART0_ReceiveString(char *buffer);
+
+void UART0_SendUInt(uint32_t num);
+
+uint32_t UART0_ReceiveUInt(void);
 /*
  * UART0_IsDataAvailable
  * Checks if data is available in the receive FIFO.
