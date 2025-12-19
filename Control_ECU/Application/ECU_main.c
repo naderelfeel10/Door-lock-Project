@@ -1,5 +1,4 @@
-
-/*Control_ECU main file*/
+/* Control_ECU main file */
 
 
 #include <stdint.h>
@@ -21,9 +20,9 @@ void Door_Init(void);
 void Door_Lock(void);
 void Door_Unlock(void);
 
-/******************************************************************************
+/**************************
  *                              Definitions                                    *
- ******************************************************************************/
+ **************************/
 
 #define PASSWORD_LENGTH         5       /* 5-digit password */
 #define PASSWORD_EEPROM_BLOCK   0       /* Store password in block 0 */
@@ -39,7 +38,8 @@ void Door_Unlock(void);
 #define DOOR_LED_RED            PIN1    /* PF1 - Red (Locked) */
 #define DOOR_LED_GREEN          PIN3    /* PF3 - Green (Unlocked) */
 #define STATUS_LED_BLUE         PIN2    /* PF2 - Status/Feedback */
-
+#define TIMER0_1MS_RELOAD 16000
+#include "GPTM_TIMER0.h"
 
 static char buffer[PASSWORD_LENGTH + 1];
 static uint8_t password_index = 0;
@@ -49,11 +49,14 @@ static uint8_t auto_lock_timeout = 10;  /* Default 10 seconds */
 static uint8_t pending_timeout = 10;     /* Temp value when adjusting */
 
 
+#define SYSTICK_1MS_RELOAD   16000U
+#define DOOR_MOVE_DELAY_MS  3000U
+#define TIMER0_1MS_RELOAD 16000U
 
 void System_Init(void)
 {
     /* Initialize SysTick for delays */
-    SysTick_Init(16000, SYSTICK_NOINT);
+    SysTick_Init(SYSTICK_1MS_RELOAD, SYSTICK_NOINT);
     
     /* Initialize LCD */
     //LCD_Init();
@@ -80,7 +83,7 @@ void Door_Init(void)
     DIO_Init(PORTF, DOOR_LED_GREEN, OUTPUT);    /* Green LED - Unlocked */
     DIO_Init(PORTF, STATUS_LED_BLUE, OUTPUT);   /* Blue LED - Status */
     
-    Door_Lock();  /* Start locked */
+    Motor_Stop();  /* Start locked */
     //StatusLED_Off();
 }
 
@@ -121,20 +124,20 @@ uint8_t StorePassword(const char* pwd)
  */
 uint8_t RetrievePassword(char* pwd)
 {
-    uint8_t buffer[8] = {0};  /* Initialize with zeros */
-    uint8_t i;
+    uint8_t local_buffer[8] = {0};  /* Initialize with zeros */
+    //uint8_t i;
     uint8_t result;
     
     /* Read from EEPROM - read 8 bytes */
-    result = EEPROM_ReadBuffer(PASSWORD_EEPROM_BLOCK, PASSWORD_EEPROM_OFFSET, buffer, 8);
+    result = EEPROM_ReadBuffer(PASSWORD_EEPROM_BLOCK, PASSWORD_EEPROM_OFFSET, local_buffer, 8);
     
     if(result == EEPROM_SUCCESS)
     {
         
         /* Convert bytes to password string */
-        for(i = 0; i < PASSWORD_LENGTH; i++)
+        for(uint8_t i = 0; i < PASSWORD_LENGTH; i++)
         {
-            pwd[i] = (char)buffer[i];
+            pwd[i] = (char)local_buffer[i];
         }
         pwd[PASSWORD_LENGTH] = '\0';
     }
@@ -146,11 +149,11 @@ uint8_t RetrievePassword(char* pwd)
 
 uint8_t StoreTimeout(uint8_t timeout)
 {
-    uint8_t buffer[4] = {0};  /* Initialize with zeros */
-    buffer[0] = timeout;
+    uint8_t timeout_Buffer [4] = {0};  /* Initialize with zeros */
+    timeout_Buffer[0] = timeout;
     
     /* Write to EEPROM - write 4 bytes (multiple of 4) */
-    return EEPROM_WriteBuffer(PASSWORD_EEPROM_BLOCK, TIMEOUT_EEPROM_OFFSET, buffer, 4);
+    return EEPROM_WriteBuffer(PASSWORD_EEPROM_BLOCK, TIMEOUT_EEPROM_OFFSET, timeout_Buffer, 4);
 }
 /*
  * RetrieveTimeout
@@ -158,19 +161,19 @@ uint8_t StoreTimeout(uint8_t timeout)
  */
 uint8_t RetrieveTimeout(uint8_t* timeout)
 {
-    uint8_t buffer[4] = {0};  /* Initialize with zeros */
+    uint8_t timeout_Buffer[4] = {0};  /* Initialize with zeros */
     uint8_t result;
     
     /* Read from EEPROM - read 4 bytes */
-    result = EEPROM_ReadBuffer(PASSWORD_EEPROM_BLOCK, TIMEOUT_EEPROM_OFFSET, buffer, 4);
+    result = EEPROM_ReadBuffer(PASSWORD_EEPROM_BLOCK, TIMEOUT_EEPROM_OFFSET, timeout_Buffer, 4);
     
     if(result == EEPROM_SUCCESS)
     {
-        *timeout = buffer[0];
+        *timeout = timeout_Buffer[0];
         /* Validate timeout range */
         if(*timeout < MIN_TIMEOUT || *timeout > MAX_TIMEOUT)
         {
-            *timeout = 10;  /* Default to 10 seconds */
+            *timeout = 10; 
         }
     }
     
@@ -311,10 +314,11 @@ void UART_verifyPassword(void)
 */
 void UART_verifyPassword(void)
 {
-    char rx_password[PASSWORD_LENGTH + 1];
+    //char rx_password[PASSWORD_LENGTH + 1]; --code refactoring
 
     if(RetrievePassword(stored_password) == EEPROM_SUCCESS)
     {
+        char rx_password[PASSWORD_LENGTH + 1];
         UART0_SendChar('1');   // ready
 
         for(uint8_t i = 0; i < PASSWORD_LENGTH; i++)
@@ -339,7 +343,15 @@ void Door_Lock(void)
 {
     DIO_WritePin(PORTF, DOOR_LED_RED, HIGH);
     DIO_WritePin(PORTF, DOOR_LED_GREEN, LOW);
+
+    Motor_RotateCCW();
+
+    GPTM_Timer0A_Init(DOOR_MOVE_DELAY_MS * TIMER0_1MS_RELOAD);
+    while (!GPTM_Timer0A_TimeOut());
+    GPTM_Timer0A_ClearFlag();
+
     Motor_Stop();
+
 }
 
 /*
@@ -350,19 +362,26 @@ void Door_Unlock(void)
 {
     DIO_WritePin(PORTF, DOOR_LED_RED, LOW);
     DIO_WritePin(PORTF, DOOR_LED_GREEN, HIGH);
+
     Motor_RotateCW();
+
+    GPTM_Timer0A_Init(DOOR_MOVE_DELAY_MS * TIMER0_1MS_RELOAD);
+    while (!GPTM_Timer0A_TimeOut());
+    GPTM_Timer0A_ClearFlag();
+
+    Motor_Stop();
 }
 
 void HandleDoorOperation(void)
 {
     
-    /* Unlock the door */
     Door_Unlock();
     UART0_SendChar('u');
-  
-    DelayMs(auto_lock_timeout * 1000);
 
-    /* Lock the door */
+    GPTM_Timer0A_Init(auto_lock_timeout * 1000 * TIMER0_1MS_RELOAD);
+    while (!GPTM_Timer0A_TimeOut());
+    GPTM_Timer0A_ClearFlag();
+
     Door_Lock();
     UART0_SendChar('l');
 
@@ -375,10 +394,9 @@ int main(void)
     //EEPROM_Init();
     while(1)
     {
-        if(UART0_IsDataAvailable())
-        {
+    if(UART0_IsDataAvailable())
+    {
             char receivedChar = UART0_ReceiveChar();
-                    /* Echo the character back to PuTTY */
         //UART0_SendChar(receivedChar);
         //UART0_SendString("\r\n");  /* New line for better readability */
          switch(receivedChar){
@@ -432,6 +450,7 @@ int main(void)
                DelayMs(20);
               if(StoreTimeout(new_timeout) == EEPROM_SUCCESS)
                 {
+                  auto_lock_timeout = new_timeout;
                   UART0_SendChar('1');
                 }else {  UART0_SendChar('0'); }
                 break;

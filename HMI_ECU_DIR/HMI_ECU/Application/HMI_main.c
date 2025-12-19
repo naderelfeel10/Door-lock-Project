@@ -180,21 +180,22 @@ uint8_t VerifyPassword(const char* input, const char* stored)
 void handleDoor_HMI(void){
                                 UART0_SendChar('F'); // HandleDoorOperation();
                                 
-                                    uint8_t countdown = auto_lock_timeout;
-                                    char buffer[16];
-                                     char handle_lcd_time_tmp_char;
-                            
-                                while(1){
+                               uint8_t countdown = auto_lock_timeout;
+                               char buffer[16];
+                               char handle_lcd_time_tmp_char;
+                                    
+                               while(1){
                                    if (UART0_IsDataAvailable()){
                                       handle_lcd_time_tmp_char =  UART0_ReceiveChar();
                                       break;
                                       } 
                                      }
                                 if(handle_lcd_time_tmp_char == 'u'){
+                                    //DelayMs(3000);
                                     LCD_Clear();
                                     LCD_SetCursor(0, 0);
                                     LCD_WriteString("Door Unlocked!");
-                                }
+                                
                                 
                             /* Countdown display */
                               while(countdown > 0)
@@ -207,6 +208,7 @@ void handleDoor_HMI(void){
                                           DelayMs(1000);
                                           countdown--;
                                  }
+                                }
                                 
                                  while(1){
                                    if (UART0_IsDataAvailable()){
@@ -215,6 +217,7 @@ void handleDoor_HMI(void){
                                       } 
                                      }
                                 if(handle_lcd_time_tmp_char == 'l'){
+                                    //DelayMs(3000);
                                     LCD_Clear();
                                     LCD_SetCursor(0, 0);
                                     LCD_WriteString("Door locked!");
@@ -623,9 +626,10 @@ else
                     LCD_WriteString("New Password:");
                     LCD_SetCursor(1, 0);
                 }
+                /*
                 else
                 {
-                    /* Wrong password */
+                    // Wrong password 
                     LCD_Clear();
                     LCD_SetCursor(0, 0);
                     LCD_WriteString("Wrong Password!");
@@ -635,6 +639,45 @@ else
                     current_state = STATE_CHANGE_OLD_PASSWORD;
                     DisplayMainMenu();
                 }
+*/
+                
+                ///
+    else
+    {
+                                /* Incorrect password */
+/* Incorrect password */
+LCD_Clear();
+LCD_SetCursor(0, 0);
+LCD_WriteString("Wrong Password!");
+
+numberOfAttemptsch ++;
+StatusLED_Blink(3);
+DelayMs(1500);
+
+ClearPasswordBuffer();
+
+if (numberOfAttemptsch  >= 3)
+{
+    LCD_Clear();
+    LCD_SetCursor(0, 0);
+    LCD_WriteString("Attempts Exceeded");
+    LCD_SetCursor(1, 0);
+    LCD_WriteString("System Locked");
+
+    DelayMs(3000);
+
+    numberOfAttemptsch  = 0;  
+    UART0_SendChar('G');    //Buzzer_Beep(3000);
+    current_state = STATE_MAIN_MENU; 
+    DisplayMainMenu();
+}
+else
+{
+    current_state = STATE_MAIN_MENU;
+    DisplayMainMenu();
+}
+    }
+                ///
             }
         }
     }
@@ -810,8 +853,6 @@ if(UART0_ReceiveChar() == '1')
     {
         UART0_SendChar(password[i]);
     }
-
-
 
     while(!UART0_IsDataAvailable());
     char result = UART0_ReceiveChar();

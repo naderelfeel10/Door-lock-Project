@@ -1,10 +1,4 @@
-/******************************************************************************
- * File: motor.h
- * Module: Motor Driver
- * Description: Header file for DC Motor HAL with direction control
- * Author: Ahmedhh
- * Date: December 14, 2025
- ******************************************************************************/
+
 
 #ifndef MOTOR_H_
 #define MOTOR_H_
@@ -40,5 +34,9 @@ void Motor_RotateCCW(void);
  * Stops the motor completely.
  */
 void Motor_Stop(void);
+
+/* Timer-based control */
+void Motor_RotateCW_Time(uint32_t time_ms);
+void Motor_RotateCCW_Time(uint32_t time_ms);
 
 #endif /* MOTOR_H_ */

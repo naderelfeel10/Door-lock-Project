@@ -635,7 +635,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state>05-EEPROM-Demo.srec</state>
+                    <state>ECU_Control.srec</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>
@@ -925,7 +925,7 @@
                 </option>
                 <option>
                     <name>IlinkStackAnalysisEnable</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IlinkStackControlFile</name>
@@ -2129,6 +2129,12 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\eeprom.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Control_ECU\MCAL\GPTM_TIMER0.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Control_ECU\MCAL\GPTM_TIMER0.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\systick.c</name>

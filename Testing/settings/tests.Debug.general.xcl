@@ -1,0 +1,15 @@
+"D:\programs\IAR Systems\Emdeded Workbench 9.0_2\arm\bin\armPROC.dll" 
+
+"D:\programs\IAR Systems\Emdeded Workbench 9.0_2\arm\bin\armLMIFTDI.dll" 
+
+"D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\Debug\Exe\tests.out" 
+
+--plugin="D:\programs\IAR Systems\Emdeded Workbench 9.0_2\arm\bin\armbat.dll" 
+
+--device_macro="D:\programs\IAR Systems\Emdeded Workbench 9.0_2\arm\config\debugger\TexasInstruments\TM4C123.dmac" 
+
+--flash_loader="D:\programs\IAR Systems\Emdeded Workbench 9.0_2\arm\config\flashloader\TexasInstruments\FlashTC4_H6_o.board" 
+
+
+
+

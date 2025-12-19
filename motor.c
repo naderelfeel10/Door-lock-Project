@@ -1,71 +1,81 @@
-/******************************************************************************
- * File: motor.c
- * Module: Motor Driver
- * Description: DC Motor HAL implementation for direction control
- * Author: Ahmedhh
- * Date: December 14, 2025
- ******************************************************************************/
-
 #include "motor.h"
 #include "dio.h"
+#include "GPTM_TIMER0.h"
 
 /******************************************************************************
  *                              Pin Configuration                              *
  ******************************************************************************/
 
 /*
- * Motor pins connected to Port F
- * IN1 -> PF0 (Motor input 1)
- * IN4 -> PF4 (Motor input 2)
+ * Motor pins connected to Port D
+ * IN1 -> PD0
+ * IN2 -> PD1
  */
 #define MOTOR_PORT      PORTF
 #define MOTOR_IN1       PIN0
 #define MOTOR_IN2       PIN4
 
+/* Timer configuration */
+#define TIMER0_1MS_RELOAD   16000   /* 16 MHz system clock */
+
 /******************************************************************************
  *                          Function Definitions                               *
  ******************************************************************************/
 
-/*
- * Motor_Init
- * Initializes PF0 and PF4 as output pins for motor control.
- * Sets both pins to LOW initially (motor stopped).
- */
-void Motor_Init(void) {
-    /* Initialize IN1 (PF0) as output */
+/* Initialize motor pins */
+void Motor_Init(void)
+{
     DIO_Init(MOTOR_PORT, MOTOR_IN1, OUTPUT);
-    
-    /* Initialize IN2 (PF4) as output */
     DIO_Init(MOTOR_PORT, MOTOR_IN2, OUTPUT);
-    
-    /* Start with motor stopped (both pins LOW) */
-    DIO_WritePin(MOTOR_PORT, MOTOR_IN1, LOW);
-    DIO_WritePin(MOTOR_PORT, MOTOR_IN2, LOW);
+
+    Motor_Stop();
 }
 
-/*
- * Motor_RotateCW
- * Rotates the motor clockwise: IN1=HIGH, IN2=LOW
- */
-void Motor_RotateCW(void) {
+/* Rotate motor clockwise */
+void Motor_RotateCW(void)
+{
     DIO_WritePin(MOTOR_PORT, MOTOR_IN1, HIGH);
     DIO_WritePin(MOTOR_PORT, MOTOR_IN2, LOW);
 }
 
-/*
- * Motor_RotateCCW
- * Rotates the motor counter-clockwise: IN1=LOW, IN2=HIGH
- */
-void Motor_RotateCCW(void) {
+/* Rotate motor counter-clockwise */
+void Motor_RotateCCW(void)
+{
     DIO_WritePin(MOTOR_PORT, MOTOR_IN1, LOW);
     DIO_WritePin(MOTOR_PORT, MOTOR_IN2, HIGH);
 }
 
-/*
- * Motor_Stop
- * Stops the motor: IN1=LOW, IN2=LOW
- */
-void Motor_Stop(void) {
+/* Stop motor */
+void Motor_Stop(void)
+{
     DIO_WritePin(MOTOR_PORT, MOTOR_IN1, LOW);
     DIO_WritePin(MOTOR_PORT, MOTOR_IN2, LOW);
+}
+
+/******************************************************************************
+ *                      Timer-Based Motor Control                        *
+ ******************************************************************************/
+
+/* Rotate CW for a specific time (ms) */
+void Motor_RotateCW_Time(uint32_t time_ms)
+{
+    Motor_RotateCW();
+
+    GPTM_Timer0A_Init(time_ms * TIMER0_1MS_RELOAD);
+    while (!GPTM_Timer0A_TimeOut());
+
+    GPTM_Timer0A_ClearFlag();
+    Motor_Stop();
+}
+
+/* Rotate CCW for a specific time (ms) */
+void Motor_RotateCCW_Time(uint32_t time_ms)
+{
+    Motor_RotateCCW();
+
+    GPTM_Timer0A_Init(time_ms * TIMER0_1MS_RELOAD);
+    while (!GPTM_Timer0A_TimeOut());
+
+    GPTM_Timer0A_ClearFlag();
+    Motor_Stop();
 }

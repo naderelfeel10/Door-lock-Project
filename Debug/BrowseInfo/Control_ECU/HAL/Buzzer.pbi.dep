@@ -1,10 +1,11 @@
 D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Debug\BrowseInfo\Control_ECU\HAL\Buzzer.pbi: \
-  D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\DLib_Product.h \
-  D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\DLib_Config_Normal.h \
-  D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\DLib_Defaults.h \
-  D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\yvals.h \
-  D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\ycheck.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Buzzer.c \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project/Buzzer.h \
   D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\stdint.h \
-  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\systick.h \
-  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\tm4c123gh6pm.h \
-  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Buzzer.c
+  D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\ycheck.h \
+  D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\yvals.h \
+  D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\DLib_Defaults.h \
+  D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\DLib_Config_Normal.h \
+  D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\DLib_Product.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Control_ECU\MCAL\GPTM_TIMER0.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project/tm4c123gh6pm.h
