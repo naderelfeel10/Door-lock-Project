@@ -1,4 +1,3 @@
-
 /*HMI_ECU main file*/
 
 #include <stdint.h>
@@ -14,9 +13,9 @@
 #include "uart.h"
 
 
-/******************************************************************************
+/**************************
  *                              Definitions                                    *
- ******************************************************************************/
+ **************************/
 #define PASSWORD_LENGTH         5       /* 5-digit password */
 #define PASSWORD_EEPROM_BLOCK   0       /* Store password in block 0 */
 #define PASSWORD_EEPROM_OFFSET  0       /* Starting at offset 0 */
@@ -49,9 +48,9 @@ typedef enum {
 } AppState;
 
 
-/******************************************************************************
+/**************************
  *                          Global Variables                                   *
- ******************************************************************************/
+ **************************/
 
 static char password[PASSWORD_LENGTH + 1] = {0};          /* Current password buffer */
 static char temp_password[PASSWORD_LENGTH + 1] = {0};      /* Temp password for confirmation */
@@ -64,9 +63,9 @@ static uint8_t attempt_count = 0;
 static uint8_t auto_lock_timeout = 10;  /* Default 10 seconds */
 static uint8_t pending_timeout = 10;     /* Temp value when adjusting */
 
-/******************************************************************************
+/**************************
  *                          Function Prototypes                                *
- ******************************************************************************/
+ **************************/
 
 void System_Init(void);
 //void Door_Init(void);
@@ -181,7 +180,7 @@ void handleDoor_HMI(void){
                                 UART0_SendChar('F'); // HandleDoorOperation();
                                 
                                uint8_t countdown = auto_lock_timeout;
-                               char buffer[16];
+                               //char buffer[16];//----code refactoring
                                char handle_lcd_time_tmp_char;
                                     
                                while(1){
@@ -199,7 +198,7 @@ void handleDoor_HMI(void){
                                 
                             /* Countdown display */
                               while(countdown > 0)
-                               {
+                               {          char buffer[16];//new place for buffer declaration
                                           sprintf(buffer, "Lock in %d sec", countdown);
                                           LCD_SetCursor(1, 0);
                                           LCD_WriteString("                ");
@@ -915,9 +914,9 @@ char StoreTimeoutReceived = UART0_ReceiveChar();
 
 
 
-/******************************************************************************
+/**************************
  *                          Main Function                                      *
- ******************************************************************************/
+ **************************/
 
 int main(void)
 {
@@ -1062,3 +1061,4 @@ int main(void)
         }
     }
 }
+//
