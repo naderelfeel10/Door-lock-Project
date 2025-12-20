@@ -38,7 +38,7 @@ void UART0_Init(void);
  * Parameters:
  *   data - Character to transmit
  */
-void UART0_SendChar(char data);
+void UART5_SendChar(char data);
 
 /*
  * UART0_ReceiveChar
@@ -48,7 +48,7 @@ void UART0_SendChar(char data);
  * Returns:
  *   Received character
  */
-char UART0_ReceiveChar(void);
+char UART5_ReceiveChar(void);
 
 /*
  * UART0_SendString
@@ -57,8 +57,13 @@ char UART0_ReceiveChar(void);
  * Parameters:
  *   str - Pointer to null-terminated string to transmit
  */
-void UART0_SendString(const char *str);
+void UART5_SendString(const char *str);
 
+void UART5_ReceiveString(char *buffer);
+
+void UART5_SendUInt(uint32_t num);
+
+uint32_t UART5_ReceiveUInt(void);
 /*
  * UART0_IsDataAvailable
  * Checks if data is available in the receive FIFO.
@@ -66,6 +71,6 @@ void UART0_SendString(const char *str);
  * Returns:
  *   1 if data is available, 0 otherwise
  */
-uint8_t UART0_IsDataAvailable(void);
+uint8_t UART5_IsDataAvailable(void);
 
 #endif /* UART_H_ */
