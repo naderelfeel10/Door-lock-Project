@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.10.1.308/W64 for ARM                  20/Dec/2025  09:16:42
+# IAR ELF Linker V9.10.1.308/W64 for ARM                  21/Dec/2025  01:08:17
 # Copyright 2007-2021 IAR Systems AB.
 #
 #    Output file  =
@@ -368,12 +368,12 @@ StatusLED_On                 0x1c79    0xe  Code  Gb  HMI_main.o [1]
 SysTick_Handler              0x1027         Code  Wk  vectortrap_M.o [6]
 SysTick_Init                 0x2af5   0x2e  Code  Gb  systick.o [3]
 System_Init                  0x1c3d   0x3c  Code  Gb  HMI_main.o [1]
-UART0_Init                   0x3351   0x7e  Code  Gb  uart.o [3]
-UART0_IsDataAvailable        0x3407   0x12  Code  Gb  uart.o [3]
-UART0_ReceiveChar            0x33e1   0x10  Code  Gb  uart.o [3]
-UART0_SendChar               0x33cf   0x12  Code  Gb  uart.o [3]
-UART0_SendString             0x33f1   0x16  Code  Gb  uart.o [3]
-UART0_SendUInt               0x3449   0x50  Code  Gb  uart.o [3]
+UART5_Init                   0x3351   0x7e  Code  Gb  uart.o [3]
+UART5_IsDataAvailable        0x3407   0x12  Code  Gb  uart.o [3]
+UART5_ReceiveChar            0x33e1   0x10  Code  Gb  uart.o [3]
+UART5_SendChar               0x33cf   0x12  Code  Gb  uart.o [3]
+UART5_SendString             0x33f1   0x16  Code  Gb  uart.o [3]
+UART5_SendUInt               0x3449   0x50  Code  Gb  uart.o [3]
 UsageFault_Handler           0x1027         Code  Wk  vectortrap_M.o [6]
 VerifyPassword               0x1d19   0x2c  Code  Gb  HMI_main.o [1]
 _LitobFullNoMb                0xd5d  0x10c  Code  Lc  xprintffull_nomb.o [4]

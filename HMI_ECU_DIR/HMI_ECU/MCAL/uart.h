@@ -1,17 +1,4 @@
-/******************************************************************************
- * File: uart.h
- * Module: UART (Universal Asynchronous Receiver/Transmitter)
- * Description: Header file for TM4C123GH6PM UART0 Driver (Register Level)
- * Author: Ahmedhh
- * Date: December 10, 2025
- * 
- * Configuration:
- *   - UART0 (PA0: RX, PA1: TX)
- *   - Baud Rate: 115200
- *   - Data: 8 bits
- *   - Parity: None
- *   - Stop: 1 bit
- ******************************************************************************/
+
 
 #ifndef UART_H_
 #define UART_H_
@@ -28,7 +15,7 @@
  * Uses PA0 (RX) and PA1 (TX).
  * System clock is assumed to be 16 MHz.
  */
-void UART0_Init(void);
+void UART5_Init(void);
 
 /*
  * UART0_SendChar
@@ -38,7 +25,7 @@ void UART0_Init(void);
  * Parameters:
  *   data - Character to transmit
  */
-void UART0_SendChar(char data);
+void UART5_SendChar(char data);
 
 /*
  * UART0_ReceiveChar
@@ -48,7 +35,7 @@ void UART0_SendChar(char data);
  * Returns:
  *   Received character
  */
-char UART0_ReceiveChar(void);
+char UART5_ReceiveChar(void);
 
 /*
  * UART0_SendString
@@ -57,13 +44,13 @@ char UART0_ReceiveChar(void);
  * Parameters:
  *   str - Pointer to null-terminated string to transmit
  */
-void UART0_SendString(const char *str);
+void UART5_SendString(const char *str);
 
-void UART0_ReceiveString(char *buffer);
+void UART5_ReceiveString(char *buffer);
 
-void UART0_SendUInt(uint32_t num);
+void UART5_SendUInt(uint32_t num);
 
-uint32_t UART0_ReceiveUInt(void);
+uint32_t UART5_ReceiveUInt(void);
 /*
  * UART0_IsDataAvailable
  * Checks if data is available in the receive FIFO.
@@ -71,6 +58,6 @@ uint32_t UART0_ReceiveUInt(void);
  * Returns:
  *   1 if data is available, 0 otherwise
  */
-uint8_t UART0_IsDataAvailable(void);
+uint8_t UART5_IsDataAvailable(void);
 
 #endif /* UART_H_ */

@@ -12,4 +12,13 @@ D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\Debug\BrowseInfo
   D:\programs\IAR\ Systems\Emdeded\ Workbench\ 9.0_2\arm\inc\c\ysizet.h \
   D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\MCAL\systick.h \
   D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\HAL\Buzzer.h \
-  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\HAL\motor.h
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\HAL\motor.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\MCAL\uart.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\keyPad_test.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\LCD_test.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\buzzer_test.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\motor_test.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\uart_test.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\keypad_motor_integration_test.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\keypad_lcd_integration_test.h \
+  D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\keypad_buzzer_integration_test.h

@@ -11,6 +11,12 @@ D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\Debug\BrowseInfo
 -I
 D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\HAL
 -I
+D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\Application
+-I
+D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\HAL
+-I
+D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\MCAL
+-I
 D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing
 -I
 D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project
@@ -26,6 +32,12 @@ D:\programs\IAR Systems\Emdeded Workbench 9.0_2\arm\inc\c\aarch32
 D:\programs\IAR Systems\Emdeded Workbench 9.0_2\arm\inc
 -I
 D:\programs\IAR Systems\Emdeded Workbench 9.0_2\arm\inc\c
+-I
+D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\Application
+-I
+D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\HAL
+-I
+D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing\MCAL
 -I
 D:\DeepLearning\IAR_PROJECTS\Embedded\Door-Lock-Project\Testing
 -I

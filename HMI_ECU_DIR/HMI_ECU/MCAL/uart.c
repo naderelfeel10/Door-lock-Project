@@ -1,9 +1,4 @@
-/******************************************************************************
- * File: uart.c
- * Module: UART (Mapped to UART5 Hardware)
- * Description: TM4C123GH6PM UART5 Driver
- * NOTE: API names are UART0_... but control UART5 (PE4, PE5)
- ******************************************************************************/
+
 
 #include "uart.h"
 #include "tm4c123gh6pm.h"
@@ -18,7 +13,7 @@
 
 /* =============================================================== */
 
-void UART0_Init(void)
+void UART5_Init(void)
 {
     volatile uint32_t delay;
 
@@ -49,42 +44,42 @@ void UART0_Init(void)
 
 /* ================= Blocking APIs ================= */
 
-void UART0_SendChar(char data)
+void UART5_SendChar(char data)
 {
     while (UART_FR_R & UART_FR_TXFF);
     UART_DR_R = data;
 }
 
-char UART0_ReceiveChar(void)
+char UART5_ReceiveChar(void)
 {
     while (UART_FR_R & UART_FR_RXFE);
     return (char)(UART_DR_R & 0xFF);
 }
 
-void UART0_SendString(const char *str)
+void UART5_SendString(const char *str)
 {
     while (*str)
     {
-        UART0_SendChar(*str++);
+        UART5_SendChar(*str++);
     }
 }
 
-uint8_t UART0_IsDataAvailable(void)
+uint8_t UART5_IsDataAvailable(void)
 {
     return ((UART_FR_R & UART_FR_RXFE) == 0);
 }
 
 /* ================= Utilities ================= */
 
-void UART0_SendUInt(uint32_t num)
+void UART5_SendUInt(uint32_t num)
 {
     char buf[11];
     int i = 0;
 
     if (num == 0)
     {
-        UART0_SendChar('0');
-        UART0_SendChar('\n'); // ???? ????? ???????
+        UART5_SendChar('0');
+        UART5_SendChar('\n'); 
         return;
     }
 
@@ -96,22 +91,22 @@ void UART0_SendUInt(uint32_t num)
 
     while (i--)
     {
-        UART0_SendChar(buf[i]);
+        UART5_SendChar(buf[i]);
     }
 
-    UART0_SendChar('\n'); // ???? ????? ???????
+    UART5_SendChar('\n'); 
 }
 
 
-uint32_t UART0_ReceiveUInt(void)
+uint32_t UART5_ReceiveUInt(void)
 {
     char c;
     uint32_t val = 0;
 
     while (1)
     {
-        c = UART0_ReceiveChar();
-        if (c == '\r' || c == '\n')
+        c = UART5_ReceiveChar();
+        if (c == '\r' || c == '\n' || c == '\0')
             break;
 
         if (c >= '0' && c <= '9')
@@ -120,18 +115,11 @@ uint32_t UART0_ReceiveUInt(void)
     return val;
 }
 
-void UART0_ReceiveString(char *buffer)
+void UART5_ReceiveString(char *buffer)
 {
-    char c;
-    uint32_t i = 0;
-
-    while (1)
+    for(uint32_t i = 0; i < 5; i++)
     {
-        c = UART0_ReceiveChar();
-        if (c == '\r' || c == '\n')
-            break;
-
-        buffer[i++] = c;
+        buffer[i] = UART5_ReceiveChar();
     }
-    buffer[i] = '\0';
+    buffer[5] = '\n';
 }

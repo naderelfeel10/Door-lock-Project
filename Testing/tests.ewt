@@ -2875,6 +2875,27 @@
         </file>
     </group>
     <group>
+        <name>Integration_Testing</name>
+        <file>
+            <name>$PROJ_DIR$\Integration_Testing\keypad_buzzer_integration_test.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Integration_Testing\keypad_buzzer_integration_test.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Integration_Testing\keypad_lcd_integration_test.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Integration_Testing\keypad_lcd_integration_test.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Integration_Testing\keypad_motor_integration_test.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Integration_Testing\keypad_motor_integration_test.h</name>
+        </file>
+    </group>
+    <group>
         <name>MCAL</name>
         <file>
             <name>$PROJ_DIR$\MCAL\adc.c</name>
@@ -2902,6 +2923,45 @@
         </file>
         <file>
             <name>$PROJ_DIR$\MCAL\uart.h</name>
+        </file>
+    </group>
+    <group>
+        <name>Unit_Test</name>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\buzzer_test.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\buzzer_test.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\keyPad_test.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\keyPad_test.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\LCD_test.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\LCD_test.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\motor_test.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\motor_test.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\potentiameter_test.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\potentiameter_test.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\uart_test.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\uart_test.h</name>
         </file>
     </group>
     <file>

@@ -177,15 +177,15 @@ uint8_t VerifyPassword(const char* input, const char* stored)
 }
 
 void handleDoor_HMI(void){
-                                UART0_SendChar('F'); // HandleDoorOperation();
+                                UART5_SendChar('F'); // HandleDoorOperation();
                                 
                                uint8_t countdown = auto_lock_timeout;
                                //char buffer[16];//----code refactoring
                                char handle_lcd_time_tmp_char;
                                     
                                while(1){
-                                   if (UART0_IsDataAvailable()){
-                                      handle_lcd_time_tmp_char =  UART0_ReceiveChar();
+                                   if (UART5_IsDataAvailable()){
+                                      handle_lcd_time_tmp_char =  UART5_ReceiveChar();
                                       break;
                                       } 
                                      }
@@ -210,8 +210,8 @@ void handleDoor_HMI(void){
                                 }
                                 
                                  while(1){
-                                   if (UART0_IsDataAvailable()){
-                                      handle_lcd_time_tmp_char =  UART0_ReceiveChar();
+                                   if (UART5_IsDataAvailable()){
+                                      handle_lcd_time_tmp_char =  UART5_ReceiveChar();
                                       break;
                                       } 
                                      }
@@ -263,7 +263,7 @@ void ProcessKey(char key)
     switch(current_state)
     {
         case STATE_SETUP_PASSWORD:
-          UART0_SendChar('A');
+          UART5_SendChar('A');
           //StatusLED_On();
             /* Initial password setup */
             if(key >= '0' && key <= '9')
@@ -312,7 +312,7 @@ void ProcessKey(char key)
                     temp_password[password_index] = key;
                     password_index++;
                     LCD_WriteChar('*');
-                    UART0_SendChar(key);
+                    UART5_SendChar(key);
                     
                     if(password_index == PASSWORD_LENGTH)
                     {
@@ -326,14 +326,14 @@ void ProcessKey(char key)
                           //UART0_SendChar('\n'); // \n
                           
                           //char received = UART0_ReceiveChar();
-                          UART0_SendChar('H');
-                          UART0_SendString(password);
+                          UART5_SendChar('H');
+                          UART5_SendString(password);
                           DelayMs(20);
                           char received;
                            while(1)
                              {
-                          if(UART0_IsDataAvailable()){
-                              received = UART0_ReceiveChar();
+                          if(UART5_IsDataAvailable()){
+                              received = UART5_ReceiveChar();
                                              break;
                               
                                 }
@@ -382,7 +382,7 @@ void ProcessKey(char key)
                             DelayMs(1500);
                             
                             ClearPasswordBuffer();
-                            UART0_SendChar('#'); // to clear password buffer from the Controller 
+                            UART5_SendChar('#'); // to clear password buffer from the Controller 
                             current_state = STATE_SETUP_PASSWORD;
                             LCD_Clear();
                             LCD_SetCursor(0, 0);
@@ -394,7 +394,7 @@ void ProcessKey(char key)
             }
             else if(key == '#')  /* Cancel */
             {
-                UART0_SendChar('#');
+                UART5_SendChar('#');
                 DelayMs(300);
                 ClearPasswordBuffer();
                 current_state = STATE_SETUP_PASSWORD;
@@ -456,11 +456,11 @@ void ProcessKey(char key)
                     LCD_SetCursor(0, 0);
                     LCD_WriteString("Erasing...");
                     
-                    UART0_SendChar('J');
+                    UART5_SendChar('J');
                     char EEPROM_MassErase_receive;
                     while(1){
-                      if(UART0_IsDataAvailable()){
-                         EEPROM_MassErase_receive = UART0_ReceiveChar();
+                      if(UART5_IsDataAvailable()){
+                         EEPROM_MassErase_receive = UART5_ReceiveChar();
                         break;
                       }
                     }
@@ -514,16 +514,16 @@ void ProcessKey(char key)
                         password[PASSWORD_LENGTH] = '\0';
                         //DelayMs(300);
                         
-UART0_SendChar('E');
+UART5_SendChar('E');
 
 /* wait ready */
-while(!UART0_IsDataAvailable());
-if(UART0_ReceiveChar() == '1')
+while(!UART5_IsDataAvailable());
+if(UART5_ReceiveChar() == '1')
 {
-    UART0_SendString(password);
+    UART5_SendString(password);
 
-    while(!UART0_IsDataAvailable());
-    char result = UART0_ReceiveChar();
+    while(!UART5_IsDataAvailable());
+    char result = UART5_ReceiveChar();
 
     if(result == '2')
     {
@@ -555,10 +555,11 @@ if (numberOfAttempts  >= 3)
     LCD_SetCursor(1, 0);
     LCD_WriteString("System Locked");
 
-    DelayMs(3000);
 
     numberOfAttempts  = 0;  
-    UART0_SendChar('G');    //Buzzer_Beep(3000);
+    UART5_SendChar('G');    //Buzzer_Beep(3000);
+    DelayMs(3000);
+
     current_state = STATE_MAIN_MENU; 
     DisplayMainMenu();
 }
@@ -595,22 +596,22 @@ else
                 password[PASSWORD_LENGTH] = '\0';
                 DelayMs(300);
 
-                  UART0_SendChar('E');
+                  UART5_SendChar('E');
                     char tmp_stored_password_Received2;
                      while(1){
-                      if (UART0_IsDataAvailable()){
-                        tmp_stored_password_Received2 =  UART0_ReceiveChar();
+                      if (UART5_IsDataAvailable()){
+                        tmp_stored_password_Received2 =  UART5_ReceiveChar();
                          break;
                          } 
                        } 
                 
                         if(tmp_stored_password_Received2 == '1')
                         {
-                          UART0_SendString(password);
+                          UART5_SendString(password);
                           DelayMs(200);
                         while(1){
-                          if (UART0_IsDataAvailable()){
-                                tmp_stored_password_Received2 =  UART0_ReceiveChar();
+                          if (UART5_IsDataAvailable()){
+                                tmp_stored_password_Received2 =  UART5_ReceiveChar();
                                  break;
                                 } 
                       } 
@@ -663,10 +664,11 @@ if (numberOfAttemptsch  >= 3)
     LCD_SetCursor(1, 0);
     LCD_WriteString("System Locked");
 
-    DelayMs(3000);
 
     numberOfAttemptsch  = 0;  
-    UART0_SendChar('G');    //Buzzer_Beep(3000);
+    UART5_SendChar('G');    //Buzzer_Beep(3000);
+        DelayMs(3000);
+
     current_state = STATE_MAIN_MENU; 
     DisplayMainMenu();
 }
@@ -747,19 +749,19 @@ else
                         {
                             /* Save to EEPROM */
                           char store_new_pass_received ;
-                            UART0_SendChar('H');
+                            UART5_SendChar('H');
                             
                            // while(1){
                              // if(UART0_IsDataAvailable()){
-                               UART0_SendString(password);
+                               UART5_SendString(password);
                                DelayMs(200);
                               // break;
                               //}
                             //}
                             
                             while(1){
-                              if(UART0_IsDataAvailable()){
-                               store_new_pass_received = UART0_ReceiveChar();
+                              if(UART5_IsDataAvailable()){
+                               store_new_pass_received = UART5_ReceiveChar();
                                break;
                               }
                             }
@@ -843,28 +845,28 @@ else
             {
                 password[PASSWORD_LENGTH] = '\0';
 
-UART0_SendChar('E');
+UART5_SendChar('E');
 
-while(!UART0_IsDataAvailable());
-if(UART0_ReceiveChar() == '1')
+while(!UART5_IsDataAvailable());
+if(UART5_ReceiveChar() == '1')
 {
     for(uint8_t i = 0; i < PASSWORD_LENGTH; i++)
     {
-        UART0_SendChar(password[i]);
+        UART5_SendChar(password[i]);
     }
 
-    while(!UART0_IsDataAvailable());
-    char result = UART0_ReceiveChar();
+    while(!UART5_IsDataAvailable());
+    char result = UART5_ReceiveChar();
 
     if(result == '2')
     {
                                 /* Correct password - save timeout */
                                 auto_lock_timeout = pending_timeout;
-UART0_SendChar('I');         
-UART0_SendUInt(auto_lock_timeout);  
+UART5_SendChar('I');         
+UART5_SendUInt(auto_lock_timeout);  
 
-while(!UART0_IsDataAvailable());   
-char StoreTimeoutReceived = UART0_ReceiveChar();
+while(!UART5_IsDataAvailable());   
+char StoreTimeoutReceived = UART5_ReceiveChar();
                                 
                                 if(StoreTimeoutReceived == '1')
                                 {
@@ -922,10 +924,10 @@ int main(void)
 {
     char key;
     uint8_t password_exists = 0;
-    
+    //UART0_SendChar
     /* Initialize system */
     System_Init();
-    UART0_Init();
+    UART5_Init();
     /* Display initialization message */
     LCD_SetCursor(0, 0);
     LCD_WriteString("Smart Door Lock");
@@ -935,11 +937,11 @@ int main(void)
 
       /* Initialize EEPROM */
      
-     UART0_SendChar('B');
+     UART5_SendChar('B');
      char EEPROM_SUCCESS_Received;
        while(1){
-     if (UART0_IsDataAvailable()){
-       EEPROM_SUCCESS_Received =  UART0_ReceiveChar();
+     if (UART5_IsDataAvailable()){
+       EEPROM_SUCCESS_Received =  UART5_ReceiveChar();
        break;
      } 
        }
@@ -957,11 +959,11 @@ int main(void)
     
     DelayMs(1000);
     
-     UART0_SendChar('C');
+     UART5_SendChar('C');
      char RetrievePassword_Received;
        while(1){
-     if (UART0_IsDataAvailable()){
-       RetrievePassword_Received =  UART0_ReceiveChar();
+     if (UART5_IsDataAvailable()){
+       RetrievePassword_Received =  UART5_ReceiveChar();
        break;
      } 
        }
@@ -983,11 +985,11 @@ int main(void)
     
        
        
-      UART0_SendChar('D');
+      UART5_SendChar('D');
      char RetrieveTimeout_Received;
        while(1){
-     if (UART0_IsDataAvailable()){
-       RetrieveTimeout_Received =  UART0_ReceiveChar();
+     if (UART5_IsDataAvailable()){
+       RetrieveTimeout_Received =  UART5_ReceiveChar();
        break;
      } 
        }
@@ -1051,6 +1053,7 @@ int main(void)
             if(new_timeout != pending_timeout)
             {
                 pending_timeout = new_timeout;
+                //auto_lock_timeout = pending_timeout;
                 DisplayTimeoutValue(pending_timeout);
             }
             DelayMs(200);

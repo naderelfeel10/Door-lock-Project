@@ -1,107 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>3663451569</fileChecksum>
+    <fileChecksum>2156467543</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
-            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\testing\test_dio_mock.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-            <file>$PROJ_DIR$\..\mocks.h</file>
-            <file>$PROJ_DIR$\HAL\motor.h</file>
-            <file>$PROJ_DIR$\HAL\potentiometer.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\MCAL\adc.o</file>
-            <file>$PROJ_DIR$\HAL\lcd.c</file>
-            <file>$PROJ_DIR$\MCAL\adc.h</file>
-            <file>$PROJ_DIR$\HAL\keypad.h</file>
-            <file>$PROJ_DIR$\MCAL\dio.c</file>
-            <file>$PROJ_DIR$\MCAL\systick.c</file>
-            <file>$PROJ_DIR$\MCAL\systick.h</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\MCAL\adc.c</file>
-            <file>$PROJ_DIR$\HAL\motor.c</file>
-            <file>$PROJ_DIR$\MCAL\dio.h</file>
-            <file>$PROJ_DIR$\MCAL\uart.c</file>
-            <file>$PROJ_DIR$\HAL\keypad.c</file>
-            <file>$PROJ_DIR$\HAL\Buzzer.h</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
-            <file>$PROJ_DIR$\MCAL\tm4c123gh6pm.h</file>
-            <file>$PROJ_DIR$\HAL\lcd.h</file>
+            <file>$PROJ_DIR$\Unit_Test\buzzer_test.c</file>
             <file>$PROJ_DIR$\HAL\potentiometer.c</file>
+            <file>$PROJ_DIR$\Unit_Test\buzzer_test.h</file>
+            <file>$PROJ_DIR$\MCAL\dio.h</file>
+            <file>$PROJ_DIR$\MCAL\systick.h</file>
+            <file>$PROJ_DIR$\HAL\keypad.h</file>
+            <file>$PROJ_DIR$\MCAL\tm4c123gh6pm.h</file>
             <file>$PROJ_DIR$\MCAL\uart.h</file>
+            <file>$PROJ_DIR$\HAL\motor.h</file>
+            <file>$PROJ_DIR$\HAL\Buzzer.h</file>
+            <file>$PROJ_DIR$\HAL\lcd.h</file>
+            <file>$PROJ_DIR$\MCAL\systick.c</file>
+            <file>$PROJ_DIR$\HAL\potentiometer.h</file>
+            <file>$PROJ_DIR$\MCAL\adc.h</file>
+            <file>$PROJ_DIR$\MCAL\uart.c</file>
+            <file>$PROJ_DIR$\Integration_Testing\keypad_motor_integration_test.c</file>
+            <file>$PROJ_DIR$\MCAL\dio.c</file>
+            <file>$PROJ_DIR$\HAL\keypad.c</file>
+            <file>$PROJ_DIR$\HAL\lcd.c</file>
+            <file>$PROJ_DIR$\HAL\motor.c</file>
+            <file>$PROJ_DIR$\Integration_Testing\keypad_lcd_integration_test.c</file>
+            <file>$PROJ_DIR$\Integration_Testing\keypad_lcd_integration_test.h</file>
             <file>$PROJ_DIR$\HAL\Buzzer.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\testing\test_assert.o</file>
-            <file>$PROJ_DIR$\tests\test_runner.c</file>
-            <file>$PROJ_DIR$\Debug\List\tests.map</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C123GH6.icf</file>
-            <file>$PROJ_DIR$\..\systick.h</file>
-            <file>$PROJ_DIR$\tests\test_runner.h</file>
-            <file>$PROJ_DIR$\tests\test_assert.h</file>
-            <file>$PROJ_DIR$\..\tm4c123gh6pm.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$PROJ_DIR$\..\adc.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\testing\test_keypad.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\MCAL\dio.o</file>
+            <file>$PROJ_DIR$\Integration_Testing\keypad_motor_integration_test.h</file>
+            <file>$PROJ_DIR$\MCAL\adc.c</file>
             <file>$PROJ_DIR$\Debug\Obj\HAL\lcd.o</file>
-            <file>$PROJ_DIR$\tests\test_keypad.c</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\tests\test_keypad_mock.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\Unit_Test\buzzer_test.o</file>
             <file>$PROJ_DIR$\Debug\Obj\HAL\motor.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\HAL\potentiometer.o</file>
-            <file>$PROJ_DIR$\tests\mocks.h</file>
-            <file>$PROJ_DIR$\Debug\Exe\tests.out</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
             <file>$PROJ_DIR$\tests\mocks.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\testing\test_runner.o</file>
-            <file>$PROJ_DIR$\..\motor.h</file>
-            <file>$PROJ_DIR$\..\keypad.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$PROJ_DIR$\tests\test_assert.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\MCAL\systick.o</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\testing\mocks.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+            <file>$PROJ_DIR$\Unit_Test\potentiameter_test.h</file>
+            <file>$PROJ_DIR$\Unit_Test\potentiameter_test.c</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Unit_Test\LCD_test.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\tests\test_keypad_mock.o</file>
+            <file>$PROJ_DIR$\tests\test_runner.c</file>
+            <file>$PROJ_DIR$\tests\test_runner.h</file>
+            <file>$PROJ_DIR$\Unit_Test\LCD_test.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\tests.out</file>
             <file>$PROJ_DIR$\Debug\Obj\MCAL\uart.o</file>
-            <file>$PROJ_DIR$\..\dio.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\HAL\keypad.o</file>
-            <file>$PROJ_DIR$\tests\test_keypad_mock.c</file>
-            <file>$PROJ_DIR$\tests\test_dio_mock.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\HAL\potentiometer.o</file>
             <file>$PROJ_DIR$\Debug\Obj\HAL\Buzzer.o</file>
+            <file>$PROJ_DIR$\..\LCD_test.h</file>
+            <file>$PROJ_DIR$\Unit_Test\keyPad_test.h</file>
+            <file>$PROJ_DIR$\..\keypad.h</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\Unit_Test\keyPad_test.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\MCAL\systick.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\testing\test_dio_mock.o</file>
+            <file>$PROJ_DIR$\tests\test_assert.c</file>
+            <file>$PROJ_DIR$\Unit_Test\motor_test.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$PROJ_DIR$\..\dio.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Unit_Test\potentiameter_test.o</file>
+            <file>$PROJ_DIR$\Debug\List\tests.map</file>
+            <file>$PROJ_DIR$\..\keyPad_test.h</file>
+            <file>$PROJ_DIR$\Unit_Test\motor_test.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\Unit_Test\LCD_test.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\HAL\keypad.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\testing\test_keypad.o</file>
+            <file>$PROJ_DIR$\tests\test_keypad_mock.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Unit_Test\motor_test.o</file>
+            <file>$PROJ_DIR$\tests\test_dio_mock.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+            <file>$PROJ_DIR$\tests\test_assert.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Unit_Test\keyPad_test.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\MCAL\dio.o</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\testing\mocks.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C123GH6.icf</file>
             <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$PROJ_DIR$\..\Buzzer.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\tests\test_keypad.c</file>
+            <file>$PROJ_DIR$\tests\mocks.h</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\Integration_Testing\keypad_lcd_integration_test.o</file>
+            <file>$PROJ_DIR$\..\keypad_motor_integration_test.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\MCAL\adc.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\Integration_Testing\keypad_motor_integration_test.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\testing\test_assert.o</file>
+            <file>$PROJ_DIR$\..\motor_test.h</file>
+            <file>$PROJ_DIR$\..\buzzer_test.h</file>
+            <file>$PROJ_DIR$\..\keypad_lcd_integration_test.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\testing\test_runner.o</file>
+            <file>$PROJ_DIR$\Unit_Test\uart_test.h</file>
+            <file>$PROJ_DIR$\Unit_Test\uart_test.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\Unit_Test\uart_test.o</file>
+            <file>$PROJ_DIR$\Integration_Testing\keypad_buzzer_integration_test.c</file>
+            <file>$PROJ_DIR$\Integration_Testing\keypad_buzzer_integration_test.h</file>
+            <file>$PROJ_DIR$\..\uart_test.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Integration_Testing\keypad_buzzer_integration_test.o</file>
+            <file>$PROJ_DIR$\..\keypad_buzzer_integration_test.h</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 49 31</file>
+                    <file> 38 56</file>
                 </tool>
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\HAL\lcd.c</name>
+            <name>$PROJ_DIR$\Unit_Test\buzzer_test.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 42</file>
+                    <file> 26</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 25 63 34 5 38 32 50 68 61 44 1 2</file>
+                    <file> 9 4 75 66 63 77 40 54</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\MCAL\dio.c</name>
+            <name>$PROJ_DIR$\HAL\potentiometer.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
@@ -111,7 +140,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 19 24 5 38 32 68 44 2</file>
+                    <file> 12 13 75 66 63 77 40 54</file>
                 </tool>
             </inputs>
         </file>
@@ -120,63 +149,63 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 57</file>
+                    <file> 48</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 19 15 24 5 38 32 68 44 2</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 55</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 69 63 54 53 34 5 38 32 68 60 44 1 2</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\MCAL\adc.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 9</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 11 24 5 38 32 68 44 2</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\HAL\motor.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 46</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 7 63 5 38 32 68 44 2</file>
+                    <file> 3 4 6 75 66 63 77 40 54</file>
                 </tool>
             </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\MCAL\uart.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 39</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 6 7 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Integration_Testing\keypad_motor_integration_test.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 85</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 5 8 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\dio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 72</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 3 6 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\keypad.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
@@ -186,42 +215,207 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 24 27 5 38 32 68 44 2</file>
+                    <file> 5 3 75 66 63 77 40 54</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\HAL\keypad.c</name>
+            <name>$PROJ_DIR$\HAL\lcd.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 64</file>
+                    <file> 25</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 12 6 5 38 32 68 44 2</file>
+                    <file> 10 3 4 75 66 63 29 77 69 40 52 54</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\HAL\potentiometer.c</name>
+            <name>$PROJ_DIR$\HAL\motor.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 47</file>
+                    <file> 27</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 8 39 5 38 32 68 44 2</file>
+                    <file> 8 3 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Integration_Testing\keypad_lcd_integration_test.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 82</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 5 10 75 66 63 77 40 54</file>
                 </tool>
             </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\HAL\Buzzer.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 42</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 4 6 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\adc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 84</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 13 6 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\tests\mocks.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 74</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 80 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\potentiameter_test.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 55</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 12 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 78</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 43 9 5 8 3 4 7 88 57 98 89 83 87 96 75 66 63 77 59 40 52 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\LCD_test.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 61</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 4 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\tests\test_runner.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 90</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 70 36 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\tests.out</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 56</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 42 62 25 27 41 97 82 85 84 72 48 39 61 26 71 67 55 93 78 76 73 81 60 46</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\keyPad_test.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 71</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 5 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\tests\test_assert.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 86</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 70 75 66 63 77 59 40 52 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\motor_test.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
@@ -231,82 +425,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 34 37 5 38 32 68 44 2</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\tests\test_runner.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 52</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 36 35 5 38 32 68 44 2</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\tests\test_keypad.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 40</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 48 36 54 5 38 32 68 44 2</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\tests.out</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 31</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 67 64 42 46 47 9 41 57 62 55 33 23 3 0 58</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\tests\mocks.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 59</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 48 5 38 32 68 44 2</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\tests\test_assert.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 29</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 36 5 38 32 68 60 44 1 2</file>
+                    <file> 8 4 75 66 63 77 40 54</file>
                 </tool>
             </inputs>
         </file>
@@ -315,13 +434,13 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 45</file>
+                    <file> 34</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 54 5 38 32 68 44 2</file>
+                    <file> 45 75 66 63 77 40 54</file>
                 </tool>
             </inputs>
         </file>
@@ -330,13 +449,58 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 4</file>
+                    <file> 49</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 63 5 38 32 68 44 2</file>
+                    <file> 53 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\tests\test_keypad.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 64</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 80 70 45 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Unit_Test\uart_test.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 93</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 3 7 75 66 63 77 40 54</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Integration_Testing\keypad_buzzer_integration_test.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 97</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 9 5 75 66 63 77 40 54</file>
                 </tool>
             </inputs>
         </file>
@@ -345,23 +509,7 @@
             <tool>ILINK</tool>
         </forcedrebuild>
         <forcedrebuild>
-            <name>$PROJ_DIR$\test_keypad.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\test_runner.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\test_dio_mock.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\HAL\lcd.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MCAL\dio.c</name>
+            <name>$PROJ_DIR$\HAL\potentiometer.c</name>
             <tool>ICCARM</tool>
         </forcedrebuild>
         <forcedrebuild>
@@ -369,19 +517,11 @@
             <tool>ICCARM</tool>
         </forcedrebuild>
         <forcedrebuild>
-            <name>$PROJ_DIR$\main.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MCAL\adc.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\HAL\motor.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
             <name>$PROJ_DIR$\MCAL\uart.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\MCAL\dio.c</name>
             <tool>ICCARM</tool>
         </forcedrebuild>
         <forcedrebuild>
@@ -389,7 +529,11 @@
             <tool>ICCARM</tool>
         </forcedrebuild>
         <forcedrebuild>
-            <name>$PROJ_DIR$\HAL\potentiometer.c</name>
+            <name>$PROJ_DIR$\HAL\lcd.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\HAL\motor.c</name>
             <tool>ICCARM</tool>
         </forcedrebuild>
         <forcedrebuild>
@@ -397,15 +541,19 @@
             <tool>ICCARM</tool>
         </forcedrebuild>
         <forcedrebuild>
-            <name>$PROJ_DIR$\tests\test_runner.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\tests\test_keypad.c</name>
+            <name>$PROJ_DIR$\MCAL\adc.c</name>
             <tool>ICCARM</tool>
         </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\tests\mocks.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\main.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\tests\test_runner.c</name>
             <tool>ICCARM</tool>
         </forcedrebuild>
         <forcedrebuild>
@@ -417,7 +565,23 @@
             <tool>ICCARM</tool>
         </forcedrebuild>
         <forcedrebuild>
+            <name>$PROJ_DIR$\test_dio_mock.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
             <name>$PROJ_DIR$\tests\test_dio_mock.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\tests\test_keypad.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\test_runner.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\test_keypad.c</name>
             <tool>ICCARM</tool>
         </forcedrebuild>
         <forcedrebuild>

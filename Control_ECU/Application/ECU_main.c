@@ -205,9 +205,9 @@ void UART_SavePasswordCase()
      //UART0_SendChar(received);
      
   while(1){
-     if(UART0_IsDataAvailable())
+     if(UART5_IsDataAvailable())
         {
-      received = UART0_ReceiveChar();
+      received = UART5_ReceiveChar();
      //UART0_SendChar(received);
     if(received >= '0' && received <= '9')
     {
@@ -225,11 +225,11 @@ void UART_SavePasswordCase()
         //UART0_SendString("\r\n");
         if(StorePassword(buffer) == EEPROM_SUCCESS)
         {
-            UART0_SendChar('1'); 
+            UART5_SendChar('1'); 
         }
         else
         {
-            UART0_SendChar('0'); 
+            UART5_SendChar('0'); 
         }
         ClearPasswordBuffer();
         break;
@@ -258,10 +258,10 @@ void UART_EEPROM_Init(void){
     /* Initialize EEPROM */
     if(EEPROM_Init() != EEPROM_SUCCESS)
     {
-        UART0_SendChar('0');
+        UART5_SendChar('0');
     }
     else {
-      UART0_SendChar('1');
+      UART5_SendChar('1');
     }
   }
 
@@ -272,13 +272,13 @@ void UART_RetrievePassword(void){
         /* Check if EEPROM is in erased state (all 0xFF) or uninitialized (all 0x00) */
         if(stored_password[0] == 0xFF || stored_password[0] == 0x00)
         {
-            UART0_SendChar('1');
+            UART5_SendChar('1');
         }
         /* Check if valid password exists (ASCII digits '0'-'9') */
         else if(stored_password[0] >= '0' && stored_password[0] <= '9')
         {
             //password_exists = 1;
-            UART0_SendChar('2');
+            UART5_SendChar('2');
         }
     }
     
@@ -290,9 +290,9 @@ void UART_RetrieveTimeout(void){
     if(RetrieveTimeout(&auto_lock_timeout) != EEPROM_SUCCESS)
     {
         auto_lock_timeout = 10;  /* Default */
-        UART0_SendChar('1');
+        UART5_SendChar('1');
     }
-    else{UART0_SendChar('0');}
+    else{UART5_SendChar('0');}
  }
 
 /*
@@ -319,18 +319,18 @@ void UART_verifyPassword(void)
     if(RetrievePassword(stored_password) == EEPROM_SUCCESS)
     {
         char rx_password[PASSWORD_LENGTH + 1];
-        UART0_SendChar('1');   // ready
+        UART5_SendChar('1');   // ready
 
         for(uint8_t i = 0; i < PASSWORD_LENGTH; i++)
         {
-            rx_password[i] = UART0_ReceiveChar();
+            rx_password[i] = UART5_ReceiveChar();
         }
         rx_password[PASSWORD_LENGTH] = '\0';
 
         if(VerifyPassword(rx_password, stored_password))
-            UART0_SendChar('2');   // correct
+            UART5_SendChar('2');   // correct
         else
-            UART0_SendChar('3');   // wrong
+            UART5_SendChar('3');   // wrong
     }
 }
 
@@ -376,27 +376,27 @@ void HandleDoorOperation(void)
 {
     
     Door_Unlock();
-    UART0_SendChar('u');
+    UART5_SendChar('u');
 
     GPTM_Timer0A_Init(auto_lock_timeout * 1000 * TIMER0_1MS_RELOAD);
     while (!GPTM_Timer0A_TimeOut());
     GPTM_Timer0A_ClearFlag();
-
+    DelayMs(2000);
     Door_Lock();
-    UART0_SendChar('l');
+    UART5_SendChar('l');
 
 }
 
 int main(void)
 {
     System_Init();
-    UART0_Init();
+    UART5_Init();
     //EEPROM_Init();
     while(1)
     {
-    if(UART0_IsDataAvailable())
+    if(UART5_IsDataAvailable())
     {
-            char receivedChar = UART0_ReceiveChar();
+            char receivedChar = UART5_ReceiveChar();
         //UART0_SendChar(receivedChar);
         //UART0_SendString("\r\n");  /* New line for better readability */
          switch(receivedChar){
@@ -433,34 +433,34 @@ int main(void)
          case 'H':
            char password_to_store[PASSWORD_LENGTH+1];
              while(1){
-                  if (UART0_IsDataAvailable()){
-              UART0_ReceiveString(password_to_store);
+                  if (UART5_IsDataAvailable()){
+              UART5_ReceiveString(password_to_store);
                      break;
                        } 
                       }
               if(StorePassword(password_to_store) == EEPROM_SUCCESS)
                 {
-                  UART0_SendChar('1');
-                }else {    UART0_SendChar('0'); }  
+                  UART5_SendChar('1');
+                }else {    UART5_SendChar('0'); }  
            
                              break;
 
          case 'I':
-               uint8_t new_timeout = UART0_ReceiveUInt();
+               uint8_t new_timeout = UART5_ReceiveUInt();
                DelayMs(20);
               if(StoreTimeout(new_timeout) == EEPROM_SUCCESS)
                 {
                   auto_lock_timeout = new_timeout;
-                  UART0_SendChar('1');
-                }else {  UART0_SendChar('0'); }
+                  UART5_SendChar('1');
+                }else {  UART5_SendChar('0'); }
                 break;
 
          case 'J':
               if(EEPROM_MassErase() == EEPROM_SUCCESS)
                     {
-                      UART0_SendChar('1');
+                      UART5_SendChar('1');
                     }
-                    else { UART0_SendChar('0');}    
+                    else { UART5_SendChar('0');}    
             break;
          default : break;
          }

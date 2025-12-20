@@ -84,7 +84,7 @@ void UART0_SendUInt(uint32_t num)
     if (num == 0)
     {
         UART0_SendChar('0');
-        UART0_SendChar('\n'); // ???? ????? ???????
+        UART0_SendChar('\n'); 
         return;
     }
 
@@ -99,7 +99,7 @@ void UART0_SendUInt(uint32_t num)
         UART0_SendChar(buf[i]);
     }
 
-    UART0_SendChar('\n'); // ???? ????? ???????
+    UART0_SendChar('\n'); 
 }
 
 
