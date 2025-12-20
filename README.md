@@ -1,6 +1,5 @@
 # Door Locker Security System  
-**CSE211 / CSE322 – Introduction to Embedded Systems**  
-**Fall 2025**
+
 
 ---
 
